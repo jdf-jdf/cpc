@@ -61,20 +61,35 @@ obligations before you present it.
 
 ## What the session covers
 
-Roughly 60–90 minutes depending on how long you run the exercise.
+18 slides, roughly 60–90 minutes depending on how long you run the exercise.
 
-1–3. Framing, what this is and is not, a show of hands to calibrate the room.
-4–6. What these tools actually are: text prediction, why that means they make
-things up, and the one rule that follows — it drafts, you decide.
-7–8. Where it genuinely helps and where it falls down, both framed around the
-kind of work CPC staff actually do.
-9–11. The data rules. Slide 9 is the one that has to survive the session, and
-slide 11 gives staff a workable alternative so the rule does not just push the
-behaviour out of sight.
-12–13. How to ask well, with a worked before-and-after.
-14. Hands-on, ten minutes on a real task.
-15–16. Checking outputs, and a specific caution on translation.
-17–19. What CPC still has to decide, four takeaways, questions.
+**1–3.** Framing, what this is and is not, a show of hands to calibrate the room.
+
+**4–6.** What a chatbot actually is — you type, it types back, and underneath it
+is guessing the next words. Why that means it makes things up. And the one rule
+that follows: it drafts, you decide.
+
+**7.** The three surfaces: **Chat** (a window, touches nothing), **Cowork**
+(works on your real documents and files, carries a multi-step job to a finished
+deliverable), **Code** (inside software projects, for engineers). Same
+underlying thing; the difference is how much it can touch. Cowork is the one
+that maps to what CPC program and admin staff do.
+
+**8–9.** Two dials, in plain language. **Which helper** — the bright intern
+(fast, cheap, misses nuance) versus the PhD (slow, expensive, handles messy
+problems), with pros and cons side by side. And **how hard it thinks** — quick
+answer versus take-your-time, which most people don't know is a setting.
+
+**10–12.** Green, yellow, red. Green is go without asking anyone. Yellow is use
+it then check. Red is the full-bleed slide: client information never goes in.
+The escalation is deliberate — red is the loudest thing in the deck.
+
+**13–14.** Describe instead of pasting, so the red rule has a workable
+alternative. Then asking well, in four parts.
+
+**15.** Hands-on, ten minutes on a real task the participant brought.
+
+**16–18.** What CPC still has to decide, four takeaways, questions.
 
 Presenter notes on every slide carry the timing, the things worth saying out
 loud, and the traps. They are written to be read by someone other than the
@@ -93,10 +108,13 @@ practice is asserted anywhere, because none of that was available to check.
 confidentiality guidance, prompt technique — is the substance of the session and
 is stated plainly.
 
-**Deliberately absent:** no model names, version numbers, pricing, or usage
-limits. Those change on a timescale shorter than the life of a deck, and a
-slide that is quietly out of date is worse than no slide. Tool specifics belong
-in conversation, not in the file.
+**Deliberately absent from the slides:** no model names, version numbers,
+pricing, or usage limits. Those change on a timescale shorter than the life of
+a deck, and a slide that is quietly out of date is worse than no slide. Slide 8
+teaches the intern-versus-PhD idea instead and says outright that the product
+names change; the current Anthropic tiers are in that slide's presenter notes
+for your own reference, where they are easy to update and nobody in the room
+has to memorise them.
 
 Anything CPC has to decide is marked in amber rather than filled in with a
 plausible guess.
