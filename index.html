@@ -3,655 +3,514 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beginners AI Training — Draft Concept for CPC</title>
-<meta name="description" content="A draft landing page concept for a proposed beginners' AI training with the Chinese-American Planning Council. Program details are not yet decided.">
+<title>AI Basics — Working Session for CPC Staff</title>
+<meta name="description" content="A beginners' AI training deck for internal CPC staff. Presenter-driven, English.">
 <meta name="theme-color" content="#ED1C24">
 <meta name="robots" content="noindex, nofollow">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Beginners AI Training — Draft Concept for CPC">
-<meta property="og:description" content="Draft landing page concept for discussion. Not a published program.">
-<meta property="og:image" content="assets/img/cpc-logo.png">
-<meta name="twitter:card" content="summary">
 
 <link rel="icon" href="assets/img/cpc-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/deck.css">
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#deck">Skip to slides</a>
 
-<!-- ── Draft notice ─────────────────────────────────────────────────────── -->
-<div class="draftbar" id="draftbar">
-  <div class="shell draftbar__inner">
-    <p class="draftbar__text">
-      <strong>Draft concept.</strong> This is a layout proposal, not a published
-      CPC program. Nothing here has been decided — every marked item is an open
-      question for the team.
-    </p>
-    <button type="button" class="draftbar__toggle" id="decisions-toggle" aria-pressed="false">
-      <span id="decisions-label">Highlight open questions</span>
-      <span class="draftbar__count" id="decisions-count"></span>
-    </button>
+<div class="stage" id="stage">
+  <div class="deck" id="deck" tabindex="-1">
+
+    <!-- ══ 1. Title ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide--title" data-title="Title">
+      <div class="slide__body">
+        <img class="titlemark" src="assets/img/cpc-logo.png" width="151" height="130" alt="Chinese-American Planning Council">
+        <h1 class="title__h">AI Basics</h1>
+        <p class="title__sub">A working session for CPC staff</p>
+        <dl class="title__meta">
+          <div><dt>Presenter</dt><dd><span class="tbd">add name</span></dd></div>
+          <div><dt>Date</dt><dd><span class="tbd">add date</span></dd></div>
+          <div><dt>Length</dt><dd><span class="tbd">add length</span></dd></div>
+        </dl>
+      </div>
+      <aside class="notes">
+        Open by saying what this is not: not a policy announcement, not a tool rollout, not a
+        decision that has been made somewhere else. It is an hour to get hands on the thing and
+        form your own opinion.
+
+        Fill in the three fields above before presenting, or delete the row.
+      </aside>
+    </section>
+
+    <!-- ══ 2. What this session is ════════════════════════════════════════ -->
+    <section class="slide" data-title="What this is">
+      <div class="slide__body">
+        <h2 class="slide__h">What this hour is</h2>
+        <div class="twoup">
+          <div class="twoup__col">
+            <h3 class="col__h col__h--yes">We will</h3>
+            <ul class="biglist">
+              <li>Explain what these tools actually are, without hype</li>
+              <li>Put you hands-on with one today</li>
+              <li>Be specific about what not to put in</li>
+              <li>Work on a real task you brought</li>
+            </ul>
+          </div>
+          <div class="twoup__col">
+            <h3 class="col__h col__h--no">We will not</h3>
+            <ul class="biglist biglist--muted">
+              <li>Announce a policy or a tool CPC has chosen</li>
+              <li>Tell you AI will fix your workload</li>
+              <li>Ask you to use it for anything client-facing today</li>
+              <li>Get technical</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        The right-hand column matters as much as the left. Staff walk into sessions like this
+        assuming a decision has already been made and they are being managed into it. Say plainly
+        that no tool has been picked and nothing changes tomorrow because of this hour.
+      </aside>
+    </section>
+
+    <!-- ══ 3. Calibrate ═══════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Show of hands">
+      <div class="slide__body">
+        <h2 class="slide__h">Before we start: show of hands</h2>
+        <ol class="handsup">
+          <li><span class="handsup__n">1</span> I have never used one of these</li>
+          <li><span class="handsup__n">2</span> I tried it once and stopped</li>
+          <li><span class="handsup__n">3</span> I use it now and then</li>
+          <li><span class="handsup__n">4</span> I use it most weeks</li>
+        </ol>
+        <p class="slide__kicker">There is no right answer here. This is so the session can be pitched at the room.</p>
+      </div>
+      <aside class="notes">
+        Actually count. If most hands go up on 1 and 2, slow down and spend longer on the demo.
+        If most are 3 and 4, move faster through the basics and spend the time on the data rules
+        and on checking outputs, which experienced users are usually the sloppiest about.
+
+        Put your own hand up honestly too.
+      </aside>
+    </section>
+
+    <!-- ══ 4. What it is ══════════════════════════════════════════════════ -->
+    <section class="slide slide--ink" data-title="What it is">
+      <div class="slide__body">
+        <h2 class="slide__h">What an AI assistant actually is</h2>
+        <p class="statement">
+          It is a text predictor. It has read an enormous amount of writing, and when you
+          give it text, it produces the text most likely to come next.
+        </p>
+        <div class="negspace">
+          <p class="negspace__lead">It is not:</p>
+          <ul class="negspace__list">
+            <li>a search engine</li>
+            <li>a database of facts</li>
+            <li>connected to CPC's files or systems</li>
+            <li>looking anything up, unless it has specifically been set up to</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes">
+        This is the single most useful idea in the session. Everything downstream — why it makes
+        things up, why it is good at drafting and bad at facts — follows from "it predicts text."
+
+        If someone asks whether it is intelligent or conscious: it is not, and you do not need to
+        settle that debate to use the tool well. Redirect to what it does.
+      </aside>
+    </section>
+
+    <!-- ══ 5. Hallucination ═══════════════════════════════════════════════ -->
+    <section class="slide" data-title="It makes things up">
+      <div class="slide__body">
+        <h2 class="slide__h">So it will make things up</h2>
+        <p class="statement statement--tight">
+          A tool that produces plausible text produces plausible text even when it has no
+          idea. The made-up answer looks exactly like the correct one: same confidence,
+          same tone, same formatting.
+        </p>
+        <p class="pullquote">It is not lying to you. It does not know it is wrong.</p>
+        <p class="slide__kicker">
+          The industry word for this is "hallucination." It happens most with names, dates,
+          numbers, citations, and rules — which is to say, with facts.
+        </p>
+      </div>
+      <aside class="notes">
+        Worth a live example if you have one: ask it something specific about a small local
+        organization or a niche rule and watch it produce a confident, wrong, well-formatted
+        answer. That demo lands harder than any slide.
+
+        Do not use a real client scenario for this.
+      </aside>
+    </section>
+
+    <!-- ══ 6. The rule ════════════════════════════════════════════════════ -->
+    <section class="slide slide--rule" data-title="You are the editor">
+      <div class="slide__body slide__body--center">
+        <p class="bigrule__label">The whole session in one line</p>
+        <p class="bigrule">It drafts. You decide.</p>
+        <p class="bigrule__sub">Nothing it writes reaches another human being until you have read it.</p>
+      </div>
+      <aside class="notes">
+        Say this out loud and let it sit. Come back to it at the end.
+
+        The framing that works with social services staff is professional judgment: this does not
+        replace yours, it produces raw material for it. Same as a draft from a new intern — useful,
+        never sent unread.
+      </aside>
+    </section>
+
+    <!-- ══ 7. Good at ═════════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Good at">
+      <div class="slide__body">
+        <h2 class="slide__h">Where it genuinely helps</h2>
+        <ul class="cardlist">
+          <li><h3>First drafts</h3><p>Routine correspondence, outreach copy, meeting summaries, agendas. Getting from a blank page to something you can react to.</p></li>
+          <li><h3>Shortening and summarizing</h3><p>A forty-page report into a page. A long email thread into three bullets you can act on.</p></li>
+          <li><h3>Changing the reading level</h3><p>Taking dense official language and rewriting it plainly, at the level a flyer or a form letter needs.</p></li>
+          <li><h3>Reformatting</h3><p>Notes into a table. A list into a paragraph. One format into another, quickly.</p></li>
+          <li><h3>Explaining jargon</h3><p>Unfamiliar terminology in a document, explained in plain English so you can decide if it matters.</p></li>
+          <li><h3>Options when you are stuck</h3><p>Ten versions of a subject line, five ways to frame a difficult paragraph. Quantity you then judge.</p></li>
+        </ul>
+      </div>
+      <aside class="notes">
+        Notice the pattern: it is good where you already know the answer and need help producing
+        or reshaping text, and bad where you need it to supply the truth.
+
+        Ask the room which of these six is closest to something they did this week.
+      </aside>
+    </section>
+
+    <!-- ══ 8. Bad at ══════════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Bad at">
+      <div class="slide__body">
+        <h2 class="slide__h">Where it falls down</h2>
+        <ul class="cardlist cardlist--warn">
+          <li><h3>Facts and figures</h3><p>Dates, dollar amounts, statistics, citations, phone numbers. It will produce them, formatted perfectly, and they may be wrong.</p></li>
+          <li><h3>Anything current</h3><p>Its knowledge has a cutoff, and unless the tool is searching the web it does not know about anything after it.</p></li>
+          <li><h3>Program and benefits rules</h3><p>Eligibility thresholds, filing deadlines, documentation requirements. These change, and it does not track the change.</p></li>
+          <li><h3>Arithmetic</h3><p>It predicts what a calculation looks like rather than performing one. Check any number that matters.</p></li>
+          <li><h3>Knowing its own limits</h3><p>It will rarely tell you it does not know. It fills the gap instead.</p></li>
+          <li><h3>Your context</h3><p>It has never seen CPC's programs, forms, partners, or the way your team actually works.</p></li>
+        </ul>
+      </div>
+      <aside class="notes">
+        The benefits-rules item is the one that could actually hurt a client. If a staff member
+        asks it what the income limit for a program is and repeats the answer to someone in
+        intake, that is a real harm with CPC's name on it.
+
+        Be blunt: it does not know your programs, and it will answer anyway.
+      </aside>
+    </section>
+
+    <!-- ══ 9. STOP ════════════════════════════════════════════════════════ -->
+    <section class="slide slide--stop" data-title="What never goes in">
+      <div class="slide__body">
+        <p class="stop__label">The one rule to take out of this room</p>
+        <h2 class="stop__h">Client information never goes in</h2>
+        <ul class="stop__list">
+          <li>Names, addresses, phone numbers, dates of birth</li>
+          <li>Immigration or citizenship status</li>
+          <li>Case notes and anything from a file</li>
+          <li>Benefits, income, or household details</li>
+          <li>Medical or mental health information</li>
+          <li>Photographs of documents</li>
+        </ul>
+        <p class="stop__test">If you would not email it to a stranger, do not type it into a chatbot.</p>
+      </div>
+      <aside class="notes">
+        Slow all the way down here. This is the slide that has to survive the session.
+
+        Do not soften it with exceptions. A simple absolute rule that everyone remembers beats a
+        nuanced one that nobody can apply under pressure at 4pm.
+
+        If CPC later approves a tool with an enterprise agreement, the rule can be revisited then.
+        Until that exists in writing, this is the rule.
+      </aside>
+    </section>
+
+    <!-- ══ 10. Why it matters here ════════════════════════════════════════ -->
+    <section class="slide" data-title="Why it matters here">
+      <div class="slide__body">
+        <h2 class="slide__h">Why this matters more at CPC than most places</h2>
+        <p class="statement statement--tight">
+          When you type into a public AI tool, that text leaves CPC. Depending on the product
+          and its settings, it may be retained, and it may be readable by staff at that company.
+        </p>
+        <p class="statement statement--tight">
+          CPC serves immigrant communities. A disclosure of someone's status is not a privacy
+          inconvenience. Treat that data the way the people it describes would want it treated.
+        </p>
+        <p class="slide__kicker">
+          CPC's own confidentiality and data policies govern this, not this slide.
+          <span class="tbd">Confirm what those say before presenting.</span>
+        </p>
+      </div>
+      <aside class="notes">
+        Check with whoever owns data policy at CPC before you run the session, and quote their
+        language rather than yours. If there is an existing confidentiality policy staff already
+        signed, name it — this then becomes a familiar rule applied to a new tool rather than a
+        new rule to learn.
+
+        If no policy exists yet, say that plainly and put it on the open-questions slide.
+      </aside>
+    </section>
+
+    <!-- ══ 11. De-identify ════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Describe, do not paste">
+      <div class="slide__body">
+        <h2 class="slide__h">You can still get help. Describe the situation.</h2>
+        <div class="compare">
+          <div class="compare__col compare__col--bad">
+            <p class="compare__tag">Do not</p>
+            <p class="compare__text">Paste the case note, the intake form, or the client's message and ask it what to write back.</p>
+          </div>
+          <div class="compare__col compare__col--good">
+            <p class="compare__tag">Instead</p>
+            <p class="compare__text">"Help me write a warm, plain-English letter telling someone their appointment has been rescheduled and how to reach us with questions."</p>
+          </div>
+        </div>
+        <p class="slide__kicker">
+          The tool does not need to know who the person is to help you write well. It almost
+          never needs the specifics you are tempted to give it.
+        </p>
+      </div>
+      <aside class="notes">
+        This slide is what stops the rule from being useless. Staff will find a way to use these
+        tools; a rule with no workable alternative just pushes it out of sight.
+
+        Good exercise if there is time: ask someone to describe a routine task out loud without
+        any identifying detail. It is harder than it sounds and it is the skill worth practicing.
+      </aside>
+    </section>
+
+    <!-- ══ 12. Prompt anatomy ═════════════════════════════════════════════ -->
+    <section class="slide slide--ink" data-title="Writing a prompt">
+      <div class="slide__body">
+        <h2 class="slide__h">Asking well: four parts</h2>
+        <ol class="parts">
+          <li><span class="parts__n">1</span><div><h3>Context</h3><p>Who you are and who this is for. "I work at a community organization. This is for a flyer for adults reading in a second language."</p></div></li>
+          <li><span class="parts__n">2</span><div><h3>Task</h3><p>The actual thing you want, stated plainly. "Write three versions of a short paragraph explaining what to bring to an appointment."</p></div></li>
+          <li><span class="parts__n">3</span><div><h3>Constraints</h3><p>Length, tone, reading level, what to avoid. "Under 60 words. Warm but not chatty. No jargon."</p></div></li>
+          <li><span class="parts__n">4</span><div><h3>An example</h3><p>Paste something that already sounds right. This does more than the other three combined.</p></div></li>
+        </ol>
+      </div>
+      <aside class="notes">
+        Point four is the one people skip and the one that works. If CPC already has flyers or
+        letters written in the voice they want, pasting one and saying "match this tone" gets
+        further than any amount of adjectives.
+
+        Reminder as you say it: the example you paste must not contain client information either.
+      </aside>
+    </section>
+
+    <!-- ══ 13. Worked example ═════════════════════════════════════════════ -->
+    <section class="slide" data-title="Worked example">
+      <div class="slide__body">
+        <h2 class="slide__h">The same request, twice</h2>
+        <div class="compare compare--stack">
+          <div class="compare__col compare__col--bad">
+            <p class="compare__tag">Thin</p>
+            <p class="compare__text compare__text--mono">Write a flyer about our computer class.</p>
+            <p class="compare__note">Produces something generic, over-enthusiastic, and full of exclamation marks. You end up rewriting it entirely.</p>
+          </div>
+          <div class="compare__col compare__col--good">
+            <p class="compare__tag">Worth sending</p>
+            <p class="compare__text compare__text--mono">I work at a community organization in New York. Write a short flyer paragraph for a free beginners computer class. Readers are adults, many reading English as a second language. Under 70 words, plain sentences, warm but direct, no exclamation marks. Do not invent any dates or locations — leave those blank for me to fill in.</p>
+            <p class="compare__note">The last sentence is the important one. Told to leave gaps, it leaves gaps instead of inventing details.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="notes">
+        Run both live if the room has a screen. The contrast does the teaching.
+
+        "Do not invent anything, leave blanks" is a habit worth drilling. It converts the tool's
+        worst failure mode into a to-do list.
+      </aside>
+    </section>
+
+    <!-- ══ 14. Hands on ═══════════════════════════════════════════════════ -->
+    <section class="slide slide--do" data-title="Your turn">
+      <div class="slide__body">
+        <h2 class="slide__h">Your turn — ten minutes</h2>
+        <p class="do__lead">Pick one real thing from your own work. Write a prompt with all four parts. Read what comes back like an editor, not an audience.</p>
+        <ul class="do__list">
+          <li>Rewrite something official into plain English</li>
+          <li>Summarize a long document you never finished reading</li>
+          <li>Draft an agenda for a meeting you are running</li>
+          <li>Turn messy notes into a clean list</li>
+          <li>Get ten subject lines for an email you have been avoiding</li>
+        </ul>
+        <p class="do__warn">No client information. Describe, do not paste.</p>
+      </div>
+      <aside class="notes">
+        Circulate. The two things you will see most: prompts that are one line long, and people
+        accepting the first output without reading it.
+
+        Leave three or four minutes at the end for two or three people to read theirs out. Hearing
+        a colleague's result is more convincing than hearing yours.
+
+        Decide in advance which tool the room is using and whether accounts are needed.
+        <span class="tbd">Open question — see the last slide.</span>
+      </aside>
+    </section>
+
+    <!-- ══ 15. Checking ═══════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Checking its work">
+      <div class="slide__body">
+        <h2 class="slide__h">Checking what it gave you</h2>
+        <ol class="checks">
+          <li><h3>Every fact, at the source</h3><p>Dates, amounts, names, statistics, links. Not by asking the tool whether it is sure — it will simply agree with you.</p></li>
+          <li><h3>Every rule, with the person who owns it</h3><p>Anything about eligibility, deadlines, or documentation goes to the program staff or legal, every time.</p></li>
+          <li><h3>Read it aloud</h3><p>Does it sound like CPC, or like a brochure? These tools drift toward corporate enthusiasm unless told not to.</p></li>
+          <li><h3>Ask what is missing</h3><p>It answers what you asked. It will not tell you that you asked the wrong question.</p></li>
+        </ol>
+      </div>
+      <aside class="notes">
+        The first point is worth dwelling on. Asking "are you sure?" is the most common checking
+        method and the most useless one — it will apologize and produce a different answer with
+        the same confidence, which is not verification.
+      </aside>
+    </section>
+
+    <!-- ══ 16. Translation ════════════════════════════════════════════════ -->
+    <section class="slide" data-title="Translation">
+      <div class="slide__body">
+        <h2 class="slide__h">Translation, specifically</h2>
+        <p class="statement statement--tight">
+          It is fast and often good for gist — understanding roughly what an email says, or
+          getting a rough first pass a bilingual colleague then fixes.
+        </p>
+        <div class="never">
+          <p class="never__lead">It is not sufficient on its own for:</p>
+          <ul class="never__list">
+            <li>Legal notices and anything a client signs</li>
+            <li>Benefits or eligibility determinations</li>
+            <li>Medical instructions</li>
+            <li>Anything CPC's language-access obligations cover</li>
+          </ul>
+        </div>
+        <p class="slide__kicker">
+          It also tends toward a formal register that may not match how a community actually
+          speaks. A fluent translation can still be the wrong one.
+        </p>
+      </div>
+      <aside class="notes">
+        This slide will get pushback from anyone under deadline pressure, because the tool is
+        genuinely useful here and the temptation is real. Do not overclaim — say clearly that
+        rough-pass-then-human-review is legitimate, and that the human review is not optional.
+
+        CPC's own language-access requirements are the authority. Check them before presenting.
+      </aside>
+    </section>
+
+    <!-- ══ 17. Open questions ═════════════════════════════════════════════ -->
+    <section class="slide" data-title="Open questions">
+      <div class="slide__body">
+        <h2 class="slide__h">What CPC has to decide</h2>
+        <ul class="openq">
+          <li><h3>Which tools are approved</h3><p>Free consumer accounts and paid organizational accounts have very different data terms.</p></li>
+          <li><h3>What the data rule is, in writing</h3><p>Today's rule is the safe default. A written one that staff have actually read is what holds up.</p></li>
+          <li><h3>Who to ask when unsure</h3><p>A named person beats a policy document nobody can find.</p></li>
+          <li><h3>What gets reviewed before a client sees it</h3><p>Especially anything translated or anything stating a rule.</p></li>
+          <li><h3>Whether to share what works</h3><p>Prompts that work well for CPC's writing are worth collecting rather than everyone rediscovering them.</p></li>
+        </ul>
+        <p class="slide__kicker">None of these are answered here. This session does not set policy.</p>
+      </div>
+      <aside class="notes">
+        Have somewhere for these to go — a named owner and a follow-up date. A list of open
+        questions with no owner is how this session becomes a nice hour that changed nothing.
+
+        If leadership is in the room, this is the slide to stop on.
+      </aside>
+    </section>
+
+    <!-- ══ 18. Takeaways ══════════════════════════════════════════════════ -->
+    <section class="slide slide--ink" data-title="Takeaways">
+      <div class="slide__body">
+        <h2 class="slide__h">Four things to take with you</h2>
+        <ol class="takeaways">
+          <li><span class="takeaways__n">1</span><p>It predicts text. It will be confidently wrong, and wrong looks exactly like right.</p></li>
+          <li><span class="takeaways__n">2</span><p>It drafts, you decide. Nothing goes out unread.</p></li>
+          <li><span class="takeaways__n">3</span><p>No client information, ever. Describe the situation instead of pasting it.</p></li>
+          <li><span class="takeaways__n">4</span><p>Verify every fact, number, and rule with the source that owns it.</p></li>
+        </ol>
+      </div>
+      <aside class="notes">
+        If people remember one thing, make it number three. If they remember two, add number one.
+
+        Offer to send the four lines round afterwards — they fit in an email and that is where
+        they will actually get reread.
+      </aside>
+    </section>
+
+    <!-- ══ 19. Close ══════════════════════════════════════════════════════ -->
+    <section class="slide slide--title" data-title="Questions">
+      <div class="slide__body">
+        <img class="titlemark" src="assets/img/cpc-logo.png" width="151" height="130" alt="">
+        <h2 class="title__h">Questions</h2>
+        <p class="title__sub">And anything you did not want to ask in front of the room</p>
+        <dl class="title__meta">
+          <div><dt>Follow up with</dt><dd><span class="tbd">add contact</span></dd></div>
+        </dl>
+      </div>
+      <aside class="notes">
+        Stay in the room afterwards. The most revealing questions — "I already pasted something,
+        was that bad?" — only come one to one.
+
+        If you get that question: answer it calmly, do not make an example of anyone, and take it
+        as evidence for why the written policy is needed.
+      </aside>
+    </section>
+
   </div>
 </div>
 
-<header class="masthead" id="masthead">
-  <div class="shell masthead__inner">
-    <a class="lockup" href="#top" aria-label="Chinese-American Planning Council, draft AI training concept">
-      <img class="lockup__mark" src="assets/img/cpc-logo.png" width="151" height="130" alt="Chinese-American Planning Council">
-      <span class="lockup__text">
-        <span class="lockup__org">Chinese-American Planning Council</span>
-        <span class="lockup__program">Beginners AI Training</span>
-      </span>
-    </a>
+<!-- ══ Presenter chrome ═══════════════════════════════════════════════════ -->
 
-    <nav class="masthead__nav" aria-label="Section navigation">
-      <a href="#course">Curriculum</a>
-      <a href="#supports">Open questions</a>
-      <a href="#locations">Sites</a>
-      <a href="#questions">FAQ</a>
-    </nav>
+<div class="hud" id="hud">
+  <button class="hud__btn" id="prev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <p class="hud__count"><span id="cur">1</span> / <span id="total">19</span></p>
+  <button class="hud__btn" id="next" aria-label="Next slide">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <button class="hud__btn hud__btn--wide" id="notes-btn" aria-pressed="false">Notes</button>
+  <button class="hud__btn hud__btn--wide" id="grid-btn" aria-pressed="false">Overview</button>
+  <button class="hud__btn hud__btn--wide" id="help-btn" aria-expanded="false">Keys</button>
+</div>
 
-    <div class="masthead__actions">
-      <a class="btn btn--primary" href="#register">
-        <span>Sign-up</span>
-        <span class="btn__pip" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M5 12h13M12.5 6l6 6-6 6"/></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</header>
+<div class="progress" id="progress" aria-hidden="true"><span class="progress__fill" id="progress-fill"></span></div>
 
-<main id="main">
+<div class="notespane" id="notespane" hidden>
+  <h2 class="notespane__h">Presenter notes<span class="notespane__slide" id="notespane-title"></span></h2>
+  <div class="notespane__body" id="notespane-body"></div>
+</div>
 
-  <!-- ── Hero ───────────────────────────────────────────────────────────── -->
-  <section class="hero" id="top">
-    <div class="shell hero__grid">
+<div class="grid" id="grid" hidden>
+  <div class="grid__inner" id="grid-inner"></div>
+</div>
 
-      <div class="hero__body reveal">
-        <h1 class="hero__title">Learn to use AI, starting from zero.</h1>
+<div class="help" id="help" hidden>
+  <h2>Keyboard</h2>
+  <dl>
+    <div><dt><kbd>&rarr;</kbd> <kbd>Space</kbd></dt><dd>Next slide</dd></div>
+    <div><dt><kbd>&larr;</kbd></dt><dd>Previous slide</dd></div>
+    <div><dt><kbd>Home</kbd> <kbd>End</kbd></dt><dd>First / last slide</dd></div>
+    <div><dt><kbd>N</kbd></dt><dd>Presenter notes</dd></div>
+    <div><dt><kbd>O</kbd></dt><dd>Overview of all slides</dd></div>
+    <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
+    <div><dt><kbd>?</kbd></dt><dd>This panel</dd></div>
+    <div><dt><kbd>Esc</kbd></dt><dd>Close any panel</dd></div>
+  </dl>
+  <p class="help__print">Printing gives one slide per page with its notes underneath, for a handout.</p>
+</div>
 
-        <p class="hero__lede">
-          A proposed introduction to AI for adults who have never opened one of
-          these tools, and for anyone who tried once, got a strange answer, and
-          stopped. The draft goal: leave able to use AI for things you already
-          do &mdash; writing a letter, reading a form, looking for work.
-        </p>
+<p class="livestatus" id="livestatus" role="status" aria-live="polite"></p>
 
-        <p class="hero__note">
-          Headline and framing are a proposal. The program itself &mdash; length,
-          cost, schedule, who runs it &mdash; is undecided.
-        </p>
-
-        <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#register">
-            <span>See the sign-up flow</span>
-            <span class="btn__pip" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M5 12h13M12.5 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-          <a class="btn btn--secondary btn--lg" href="#supports">
-            <span>What needs deciding</span>
-          </a>
-        </div>
-
-        <dl class="factbar">
-          <div class="factbar__item">
-            <dt>Cost</dt>
-            <dd><span class="tbd">to be set</span></dd>
-          </div>
-          <div class="factbar__item">
-            <dt>Length</dt>
-            <dd><span class="tbd">to be set</span></dd>
-          </div>
-          <div class="factbar__item">
-            <dt>Sites</dt>
-            <dd><span class="tbd">to be chosen</span></dd>
-          </div>
-          <div class="factbar__item">
-            <dt>Equipment</dt>
-            <dd><span class="tbd">to be decided</span></dd>
-          </div>
-        </dl>
-      </div>
-
-      <aside class="enroll reveal" aria-labelledby="enroll-heading">
-        <div class="enroll__inner">
-          <h2 class="enroll__heading" id="enroll-heading">Where the schedule goes</h2>
-
-          <p class="enroll__intro">
-            This panel is the layout for a live schedule. The rows below are
-            empty on purpose &mdash; no dates, times, or seat counts exist yet.
-          </p>
-
-          <ul class="enroll__list">
-            <li class="enroll__row enroll__row--empty">
-              <span class="enroll__where"><span class="tbd">Site 1</span></span>
-              <span class="enroll__when">Day and time to be set</span>
-              <span class="enroll__dates">Start and end dates to be set</span>
-            </li>
-            <li class="enroll__row enroll__row--empty">
-              <span class="enroll__where"><span class="tbd">Site 2</span></span>
-              <span class="enroll__when">Day and time to be set</span>
-              <span class="enroll__dates">Start and end dates to be set</span>
-            </li>
-            <li class="enroll__row enroll__row--empty">
-              <span class="enroll__where"><span class="tbd">Site 3</span></span>
-              <span class="enroll__when">Day and time to be set</span>
-              <span class="enroll__dates">Start and end dates to be set</span>
-            </li>
-          </ul>
-
-          <p class="enroll__note">
-            If CPC wants live seat counts, that needs a source of truth &mdash;
-            a spreadsheet, Salesforce, or whatever intake already uses. Worth
-            deciding early, because it changes how the page gets built.
-          </p>
-        </div>
-      </aside>
-
-    </div>
-  </section>
-
-  <!-- ── Language band ──────────────────────────────────────────────────── -->
-  <section class="langband" aria-labelledby="lang-heading">
-    <div class="shell">
-      <h2 class="langband__heading" id="lang-heading">Language access, if the program offers it</h2>
-      <p class="langband__lede">
-        A demonstration of how the page would carry multiple languages. Which
-        languages the training is actually delivered in is
-        <span class="tbd tbd--on-brand">an open question</span> &mdash; the text
-        below is placeholder wording, not a commitment, and any real translation
-        should be done by CPC staff or a professional translator rather than a
-        machine.
-      </p>
-
-      <div class="langband__grid">
-        <div class="langband__cell" lang="en">
-          <p class="langband__lang">English</p>
-          <p class="langband__copy">Introduction to AI for beginners. Details to be announced.</p>
-        </div>
-        <div class="langband__cell" lang="zh-Hant">
-          <p class="langband__lang">中文（繁體）</p>
-          <p class="langband__copy">人工智能入門課程。詳情待公佈。</p>
-        </div>
-        <div class="langband__cell" lang="zh-Hans">
-          <p class="langband__lang">中文（简体）</p>
-          <p class="langband__copy">人工智能入门课程。详情待公布。</p>
-        </div>
-        <div class="langband__cell" lang="es">
-          <p class="langband__lang">Español</p>
-          <p class="langband__copy">Introducción a la inteligencia artificial para principiantes. Detalles por anunciar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Who it is for ──────────────────────────────────────────────────── -->
-  <section class="section audience" aria-labelledby="audience-heading">
-    <div class="shell audience__grid">
-      <div class="audience__intro reveal">
-        <h2 class="section__title" id="audience-heading">Who a class like this would serve</h2>
-        <p class="section__lede">
-          A proposed audience definition, offered as a starting point. CPC staff
-          know these communities far better than this draft does, and this is the
-          part most worth arguing with.
-        </p>
-      </div>
-
-      <ul class="audience__list reveal">
-        <li class="audience__item">
-          <h3>People who have never used an AI tool</h3>
-          <p>They have heard about it from their children, their co-workers, or the news, and have never tried it.</p>
-        </li>
-        <li class="audience__item">
-          <h3>People who use a phone, not a computer</h3>
-          <p>Texting, WeChat or WhatsApp, photos. Whether the class teaches on laptops, phones, or both is undecided.</p>
-        </li>
-        <li class="audience__item">
-          <h3>People whose first language is not English</h3>
-          <p>Whether instruction or interpretation is offered, and in which languages, is <span class="tbd">an open question</span>.</p>
-        </li>
-        <li class="audience__item">
-          <h3>People who want this for work</h3>
-          <p>Job hunting, running a small business, or keeping up with tools their workplace has started using.</p>
-        </li>
-        <li class="audience__item">
-          <h3>People worried about being fooled</h3>
-          <p>Fake voices, fake photos, and scams that target these communities specifically. A strong candidate for its own session.</p>
-        </li>
-        <li class="audience__item">
-          <h3>A defined eligibility group</h3>
-          <p>Age, residency, income, and referral requirements are <span class="tbd">not defined</span> and should follow whatever CPC's funding requires.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── Curriculum ─────────────────────────────────────────────────────── -->
-  <section class="section section--ink course" id="course" aria-labelledby="course-heading">
-    <div class="shell">
-      <div class="course__head reveal">
-        <h2 class="section__title" id="course-heading">A draft curriculum, for discussion</h2>
-        <p class="section__lede">
-          Six proposed sessions, sketched to show what the page looks like with
-          real content in it. The number of sessions, their length, and the topics
-          are all <span class="tbd tbd--on-ink">a proposal</span> &mdash; not a
-          syllabus anyone has approved.
-        </p>
-      </div>
-
-      <ol class="syllabus">
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">1</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">What AI actually is, and what it is not</h3>
-            <p>A plain explanation with no jargon: what these tools do, where the answers come from, and why they sometimes make things up. Ideally everyone types a first question and gets a first answer in session one.</p>
-          </div>
-        </li>
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">2</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">Writing things people actually have to write</h3>
-            <p>A letter to a landlord about a repair. A note to a child's teacher. A message to an employer. Participants bring the situation and leave with the letter, including how to make the tool sound like them rather than like a robot.</p>
-          </div>
-        </li>
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">3</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">Reading letters, forms, and notices</h3>
-            <p>Photographing a document and having it explained. Where AI translation is genuinely useful, and the categories &mdash; legal, medical, immigration &mdash; where it should never be the last word. CPC's own guidance should shape this session.</p>
-          </div>
-        </li>
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">4</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">Looking for work</h3>
-            <p>Turning a job posting into plain language, building a resume from a work history described out loud, and practicing interview answers. This is the session most likely to need alignment with CPC's existing workforce programs.</p>
-          </div>
-        </li>
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">5</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">Not getting scammed</h3>
-            <p>Cloned voices, fake photos, fake job offers, and messages that appear to come from a family member. What current scams look like, how to check before acting, and what should never be typed into a chatbot.</p>
-          </div>
-        </li>
-        <li class="syllabus__row reveal">
-          <span class="syllabus__num" aria-hidden="true">6</span>
-          <div class="syllabus__body">
-            <h3 class="syllabus__title">Leaving with something that works</h3>
-            <p>Setting up tools on a participant's own device before they leave the room. What ongoing support exists after the last session is <span class="tbd tbd--on-ink">undecided</span>, and it may be the single biggest factor in whether any of this sticks.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ── Open questions ─────────────────────────────────────────────────── -->
-  <section class="section supports" id="supports" aria-labelledby="supports-heading">
-    <div class="shell supports__grid">
-      <div class="supports__intro reveal">
-        <h2 class="section__title" id="supports-heading">What has to be decided</h2>
-        <p class="section__lede">
-          These are the questions that determine whether people actually show up
-          and finish. Every one of them is a real cost or staffing decision, and
-          none of them is answered here. The page has a place for each answer
-          once it exists.
-        </p>
-      </div>
-
-      <ul class="supports__list reveal">
-        <li class="supports__item">
-          <h3>Is it free, and who pays?</h3>
-          <p>Cost to the participant, and the funding source behind it. Everything else on this page depends on the answer.</p>
-        </li>
-        <li class="supports__item">
-          <h3>Do participants need their own device?</h3>
-          <p>Whether the program can lend laptops, teach on phones people already own, or use a computer lab at a site.</p>
-        </li>
-        <li class="supports__item">
-          <h3>What language support is offered?</h3>
-          <p>Interpretation, bilingual instructors, or translated materials &mdash; and in which languages. This drives both staffing and the page's translation needs.</p>
-        </li>
-        <li class="supports__item">
-          <h3>What removes the barriers to attending?</h3>
-          <p>Transit help, childcare, meals, evening or weekend timing. Whichever of these CPC can fund belongs on the page; whichever it cannot should not be implied.</p>
-        </li>
-        <li class="supports__item">
-          <h3>Is there a credential at the end?</h3>
-          <p>A certificate, an attendance requirement to earn it, and whether it connects to anything CPC or an employer recognizes.</p>
-        </li>
-        <li class="supports__item">
-          <h3>Who answers the phone?</h3>
-          <p>Which staff or site handles sign-ups, and what happens to the information collected. The page should not state a privacy practice CPC has not set.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── Sites ──────────────────────────────────────────────────────────── -->
-  <section class="section section--warm locations" id="locations" aria-labelledby="locations-heading">
-    <div class="shell">
-      <div class="locations__head reveal">
-        <h2 class="section__title" id="locations-heading">CPC's three community centers</h2>
-        <p class="section__lede">
-          Addresses and phone numbers below are CPC's own, published on
-          cpc-nyc.org. Whether the training would run at any of them &mdash; or
-          at other CPC sites, or somewhere else entirely &mdash; has not been
-          decided.
-        </p>
-      </div>
-
-      <div class="locations__grid">
-        <article class="place reveal">
-          <h3 class="place__name">Manhattan Community Center at CPC One</h3>
-          <address class="place__address">
-            45 Suffolk Street<br>
-            New York, NY 10002
-          </address>
-          <dl class="place__meta">
-            <div><dt>Class</dt><dd><span class="tbd">not scheduled</span></dd></div>
-            <div><dt>Train</dt><dd>F, J, M, Z to Delancey&ndash;Essex</dd></div>
-            <div><dt>Center</dt><dd><a href="tel:+12129410030">(212) 941-0030</a></dd></div>
-          </dl>
-        </article>
-
-        <article class="place reveal">
-          <h3 class="place__name">Brooklyn Community Center</h3>
-          <address class="place__address">
-            4101 8th Avenue, 4th Floor<br>
-            Brooklyn, NY 11232
-          </address>
-          <dl class="place__meta">
-            <div><dt>Class</dt><dd><span class="tbd">not scheduled</span></dd></div>
-            <div><dt>Train</dt><dd>D, N to 8th Avenue</dd></div>
-            <div><dt>Center</dt><dd><a href="tel:+17184920409">(718) 492-0409</a></dd></div>
-          </dl>
-        </article>
-
-        <article class="place reveal">
-          <h3 class="place__name">Queens Community Center</h3>
-          <address class="place__address">
-            133-14 41st Avenue<br>
-            Flushing, NY 11355
-          </address>
-          <dl class="place__meta">
-            <div><dt>Class</dt><dd><span class="tbd">not scheduled</span></dd></div>
-            <div><dt>Train</dt><dd>7 to Flushing&ndash;Main Street</dd></div>
-            <div><dt>Center</dt><dd><a href="tel:+17183588899">(718) 358-8899</a></dd></div>
-          </dl>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FAQ ────────────────────────────────────────────────────────────── -->
-  <section class="section faq" id="questions" aria-labelledby="faq-heading">
-    <div class="shell faq__grid">
-      <div class="faq__intro reveal">
-        <h2 class="section__title" id="faq-heading">The questions people will ask</h2>
-        <p class="section__lede">
-          These are the questions a page like this has to answer well, and they
-          are the reason the decisions above matter. The answers are blank
-          because CPC has not made those calls yet &mdash; filling them in is a
-          good way to pin down the program.
-        </p>
-      </div>
-
-      <div class="faq__list reveal">
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-1" id="qa-1-btn">
-              <span>I have never used a computer in my life. Is this really for me?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-1" role="region" aria-labelledby="qa-1-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> This depends on how session 1 is designed and whether absolute beginners are the target or one group among several. It is the most important answer on the page.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-2" id="qa-2-btn">
-              <span>Is it free? Will I be asked for money later?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-2" role="region" aria-labelledby="qa-2-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> Depends on the funding decision. Worth pairing with an anti-scam line if the answer is yes, since a free CPC program is exactly the thing scammers imitate.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-3" id="qa-3-btn">
-              <span>Do I need to speak English?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-3" role="region" aria-labelledby="qa-3-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> Follows directly from the language-support decision. Whatever is promised here has to be staffed at every single session.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-4" id="qa-4-btn">
-              <span>Will AI take my job?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-4" role="region" aria-labelledby="qa-4-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> People will ask this, and a page that dodges it loses trust. CPC should decide the honest position it wants to take, ideally with input from its workforce staff.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-5" id="qa-5-btn">
-              <span>What if I miss a session?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-5" role="region" aria-labelledby="qa-5-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> Attendance policy, make-up options, and whether missing sessions affects any credential.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-6" id="qa-6-btn">
-              <span>Can I bring my child? Can I bring a friend?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-6" role="region" aria-labelledby="qa-6-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> Childcare availability and whether sign-up is per person. Both affect room and staffing counts.</p>
-          </div>
-        </div>
-
-        <div class="qa">
-          <h3 class="qa__q">
-            <button type="button" class="qa__trigger" aria-expanded="false" aria-controls="qa-7" id="qa-7-btn">
-              <span>What happens to the information I put on this form?</span>
-              <span class="qa__sign" aria-hidden="true"></span>
-            </button>
-          </h3>
-          <div class="qa__a" id="qa-7" role="region" aria-labelledby="qa-7-btn" hidden>
-            <p class="qa__pending"><span class="tbd">Answer needed.</span> This one should be answered by CPC's existing data and privacy practice rather than written fresh for this page.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Sign-up ────────────────────────────────────────────────────────── -->
-  <section class="section section--ink register" id="register" aria-labelledby="register-heading">
-    <div class="shell register__grid">
-
-      <div class="register__pitch reveal">
-        <h2 class="section__title" id="register-heading">Sign-up, as a working mockup</h2>
-        <p class="section__lede">
-          A functioning form so the team can see the interaction &mdash; validation,
-          errors, and confirmation all work. It is not connected to anything and
-          does not send data anywhere.
-        </p>
-
-        <div class="register__alt">
-          <h3>What this form still needs</h3>
-          <ul class="register__needs">
-            <li>Somewhere for submissions to go, and a named person who receives them</li>
-            <li>The real list of sites and languages in the dropdowns</li>
-            <li>A privacy line drawn from CPC's existing practice</li>
-            <li>A phone route for people who will not use a web form &mdash; likely most of this audience</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="register__formwrap reveal">
-        <p class="form__banner">Mockup only. Nothing is submitted or stored.</p>
-
-        <form class="form" id="register-form" novalidate>
-
-          <div class="field">
-            <label class="field__label" for="f-name">Your name</label>
-            <input class="field__input" type="text" id="f-name" name="name" autocomplete="name" required>
-            <p class="field__error" id="f-name-error" hidden>Please tell us what to call you.</p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="f-phone">Phone number</label>
-            <p class="field__help" id="f-phone-help">Placeholder helper text.</p>
-            <input class="field__input" type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" aria-describedby="f-phone-help" required>
-            <p class="field__error" id="f-phone-error" hidden>Please enter a phone number with at least 10 digits.</p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="f-email">Email <span class="field__opt">optional</span></label>
-            <input class="field__input" type="email" id="f-email" name="email" autocomplete="email">
-            <p class="field__error" id="f-email-error" hidden>That email address does not look complete.</p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="f-center">Which site? <span class="field__opt">placeholder options</span></label>
-            <select class="field__input field__select" id="f-center" name="center" required>
-              <option value="">Choose a site</option>
-              <option value="site-1">Site 1 &mdash; to be named</option>
-              <option value="site-2">Site 2 &mdash; to be named</option>
-              <option value="site-3">Site 3 &mdash; to be named</option>
-              <option value="unsure">I am not sure yet</option>
-            </select>
-            <p class="field__error" id="f-center-error" hidden>Please choose a site, or pick "I am not sure yet".</p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="f-language">Preferred language <span class="field__opt">placeholder options</span></label>
-            <select class="field__input field__select" id="f-language" name="language" required>
-              <option value="">Choose a language</option>
-              <option value="lang-1">Language 1 &mdash; to be confirmed</option>
-              <option value="lang-2">Language 2 &mdash; to be confirmed</option>
-              <option value="lang-3">Language 3 &mdash; to be confirmed</option>
-            </select>
-            <p class="field__error" id="f-language-error" hidden>Please choose a language.</p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="f-notes">Anything we should know? <span class="field__opt">optional</span></label>
-            <p class="field__help" id="f-notes-help">Accessibility needs, scheduling conflicts, anything else.</p>
-            <textarea class="field__input field__textarea" id="f-notes" name="notes" rows="3" aria-describedby="f-notes-help"></textarea>
-          </div>
-
-          <div class="form__foot">
-            <button class="btn btn--primary btn--lg btn--block" type="submit" id="submit-btn">
-              <span class="btn__label">Send my sign-up</span>
-              <span class="btn__spinner" aria-hidden="true"></span>
-            </button>
-            <p class="form__fineprint">
-              A privacy line belongs here, written from CPC's existing practice.
-            </p>
-          </div>
-
-          <p class="form__status form__status--error" id="form-error" role="alert" hidden></p>
-
-        </form>
-
-        <div class="form__success" id="form-success" role="status" tabindex="-1" hidden>
-          <h3>This is the confirmation state.</h3>
-          <p id="success-detail">Nothing was sent. In a live version this would confirm the sign-up and say what happens next.</p>
-          <button class="btn btn--secondary" type="button" id="register-another">Reset the form</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="shell footer__grid">
-
-    <div class="footer__brand">
-      <img class="footer__mark" src="assets/img/cpc-logo.png" width="151" height="130" alt="">
-      <p class="footer__org">Chinese-American Planning Council</p>
-      <p class="footer__tagline">Advancing Our Communities</p>
-      <p class="footer__mission">
-        CPC advances the social and economic progress of immigrant and low-income
-        communities of New York through services, resources, and advocacy.
-        Founded 1965.
-      </p>
-    </div>
-
-    <div class="footer__col">
-      <h2 class="footer__head">This draft</h2>
-      <ul class="footer__links">
-        <li><a href="#course">Draft curriculum</a></li>
-        <li><a href="#supports">What has to be decided</a></li>
-        <li><a href="#locations">CPC community centers</a></li>
-        <li><a href="#questions">Questions to answer</a></li>
-        <li><a href="#register">Sign-up mockup</a></li>
-      </ul>
-    </div>
-
-    <div class="footer__col">
-      <h2 class="footer__head">CPC, published</h2>
-      <ul class="footer__links">
-        <li><a href="tel:+12129410030">Manhattan (212) 941-0030</a></li>
-        <li><a href="tel:+17184920409">Brooklyn (718) 492-0409</a></li>
-        <li><a href="tel:+17183588899">Queens (718) 358-8899</a></li>
-        <li><a href="mailto:info@cpc-nyc.org">info@cpc-nyc.org</a></li>
-        <li><a href="https://www.cpc-nyc.org">cpc-nyc.org</a></li>
-      </ul>
-      <address class="footer__address">
-        45 Suffolk Street<br>
-        New York, NY 10002
-      </address>
-    </div>
-
-    <div class="footer__col">
-      <h2 class="footer__head">Accessibility</h2>
-      <p class="footer__note">
-        A real accessibility statement belongs here &mdash; step-free access at each
-        site, what interpretation is provided, and how to request an
-        accommodation. Those are CPC's facts to supply, so this draft does not
-        guess at them.
-      </p>
-    </div>
-
-  </div>
-
-  <div class="shell footer__base">
-    <p>Draft concept for discussion with CPC. Not a published program and not an official CPC page.</p>
-    <p>The CPC name and logo are trademarks of the Chinese-American Planning Council, Inc., used here in a proposal prepared for CPC.</p>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
+<script src="assets/js/deck.js"></script>
 </body>
 </html>

@@ -1,135 +1,130 @@
-# Beginners AI Training — draft landing page concept
+# AI Basics — presenter deck for CPC staff
 
-A layout proposal for a possible beginners' AI training with the
-[Chinese-American Planning Council](https://www.cpc-nyc.org), built to be
-presented to the CPC team.
-
-**This is not a published program page.** No dates, costs, supports, policies,
-or commitments on it are real, because none have been decided. Anything CPC
-has not actually determined is marked on screen rather than filled in with a
-plausible-looking guess.
-
-Static site — no build step, no dependencies. Open `index.html` or drop the
-folder on any static host.
+A 19-slide beginners' AI training, built to be delivered live to an internal,
+English-speaking CPC team. Browser-based, no build step, no dependencies. Open
+`index.html` and present.
 
 ```
-index.html
+index.html            all 19 slides and their presenter notes
 assets/
-  css/styles.css
-  js/main.js
+  css/deck.css
+  js/deck.js
   img/cpc-logo.png
 ```
 
 ---
 
-## Presenting it
+## Presenting
 
-The bar at the top of the page states that it is a draft. Next to it is a
-**Highlight open questions** toggle: switching it on outlines every unresolved
-decision and numbers them, so the room can see at a glance how much is still
-open. The count is read from the page itself, so it drops as questions get
-answered and markers get removed.
-
-Suggested order: walk the page top to bottom with the toggle off so the shape
-of the thing lands, then switch it on and work the "What has to be decided"
-section.
-
-The page prints, and the draft notice and markers print with it. A printed
-copy with the caveat stripped off is exactly the artifact that causes a
-misunderstanding later.
-
----
-
-## What is real, and what is not
-
-**Taken from cpc-nyc.org and safe to show:**
-
-| Item | Value |
+| Key | |
 |---|---|
-| Logo | CPC's own header mark (`cpc_logo_tm_x130.png`) |
-| Brand red | `#ED1C24`, sampled from that logo |
-| Tagline | Advancing Our Communities |
-| Mission | Quoted verbatim in the footer |
-| Founded | 1965 |
-| Manhattan Community Center at CPC One | 45 Suffolk Street, New York, NY 10002 — (212) 941-0030 |
-| Brooklyn Community Center | 4101 8th Avenue, 4th Floor, Brooklyn, NY 11232 — (718) 492-0409 |
-| Queens Community Center | 133-14 41st Avenue, Flushing, NY 11355 — (718) 358-8899 |
-| General | info@cpc-nyc.org, (212) 941-0920 |
+| <kbd>&rarr;</kbd> <kbd>Space</kbd> | Next slide |
+| <kbd>&larr;</kbd> | Previous |
+| <kbd>Home</kbd> <kbd>End</kbd> | First / last |
+| <kbd>1</kbd>–<kbd>19</kbd> | Jump to a slide by number |
+| <kbd>N</kbd> | Presenter notes |
+| <kbd>O</kbd> | Overview of all slides |
+| <kbd>F</kbd> | Fullscreen |
+| <kbd>?</kbd> | Key list |
+| <kbd>Esc</kbd> | Close any panel |
 
-Subway lines shown for each center are the nearest stations to those
-addresses.
+Slides are authored at a fixed 1280×720 and scaled to whatever screen they land
+on, so the layout you rehearse is the layout the room sees — nothing reflows on
+a projector. Verified on 16:9 and 4:3 at several resolutions.
 
-**Proposed by this draft, and open to being wrong:** the program name, the
-headline, the audience definition, the six-session curriculum outline, and the
-set of questions in the FAQ. These are a starting point for discussion, not
-recommendations anyone has vetted against CPC's programs or funding.
+Opening the notes narrows the stage instead of covering the slide, so you can
+see both. Typing a number jumps straight to that slide, which is what you want
+when someone asks about slide 9 during questions. Every slide has a deep link
+(`index.html#/9`).
 
-**Deliberately left blank:** cost, length, schedule, sites, equipment,
-language support, transit or childcare help, certificates, attendance policy,
-eligibility, privacy practice, and who handles intake. Each has a marked slot
-waiting for a real answer.
-
-The sign-up form validates and confirms so the interaction can be reviewed,
-but it does not POST, store, or transmit anything, and it says so on screen.
-Wiring it to an endpoint is a decision for CPC rather than a default this
-draft should quietly make.
+**Handout:** print to PDF. One slide per page with its presenter notes
+underneath.
 
 ---
 
-## Design system
+## Before you present
 
-Held in `:root` at the top of `styles.css`. Change a value there rather than
-at the call site.
+Three things to fill in, all marked on-screen in amber:
 
-**Colour roles.** `--brand` (`#ED1C24`) is the logo red. At 4.24:1 on the page
-ground it clears AA for large text only, so it is limited to the logo, large
-fills, and display type. `--brand-deep` (`#C81219`) carries every button,
-link, and small red word — 5.72:1 on canvas, 5.90:1 behind white. `--pending`
-is the "not decided yet" role used by every marker, at 6.51:1 on its own wash,
-with variants for the dark and red sections. Every pairing on the page meets
-WCAG AA, including muted and small text.
+1. **Slide 1** — presenter name, date, session length.
+2. **Slide 10** — check CPC's actual confidentiality and data policy and quote
+   their language rather than the slide's. If a policy staff already signed
+   exists, name it; the session then lands as a familiar rule applied to a new
+   tool rather than a new rule to learn.
+3. **Slide 14** — decide which tool the room uses for the hands-on exercise and
+   whether anyone needs an account before they walk in.
 
-**Type.** 16 / 18 / 20 / 24 / 30 / 38 / 48 / 62. Body floor is 18px at every
-breakpoint — above the 16px minimum, since a good share of the eventual
-audience would be reading in a second language. Two families: Outfit for
-display, Public Sans for body. Noto Sans TC is appended to both stacks for
-Chinese glyph coverage, not as a third style.
-
-**Spacing.** 8px base. Every margin, padding, and gap is a multiple.
-
-**Elevation.** Three levels: surface, raised, overlay. The sticky masthead is
-the only element with a backdrop filter.
-
-**Motion.** Reveals run through `IntersectionObserver`; nothing listens to
-scroll. Only `transform` and `opacity` animate. `prefers-reduced-motion` turns
-the system off.
-
-**States.** The form covers empty, inline error, loading, and confirmation.
-Unfilled schedule rows are styled as empty slots so they read as intentional.
+Slide 16 (translation) should also be checked against CPC's language-access
+obligations before you present it.
 
 ---
 
-## Why it doesn't look like a tech landing page
+## What the session covers
 
-If this became real, the audience would be adults in immigrant and low-income
-communities across NYC — many on older Android phones, many reading in a
-second language, some opening a laptop for the first time. So: high contrast
-over atmosphere, plain sentences over marketing voice, and a print stylesheet.
+Roughly 60–90 minutes depending on how long you run the exercise.
 
-The FAQ collects the questions people actually hesitate over — "is it really
-free," "do I need English," "will AI take my job" — rather than the questions
-that flatter a program. Those answers are blank on purpose. Filling them in is
-a good way to pin down what the program actually is.
+1–3. Framing, what this is and is not, a show of hands to calibrate the room.
+4–6. What these tools actually are: text prediction, why that means they make
+things up, and the one rule that follows — it drafts, you decide.
+7–8. Where it genuinely helps and where it falls down, both framed around the
+kind of work CPC staff actually do.
+9–11. The data rules. Slide 9 is the one that has to survive the session, and
+slide 11 gives staff a workable alternative so the rule does not just push the
+behaviour out of sight.
+12–13. How to ask well, with a worked before-and-after.
+14. Hands-on, ten minutes on a real task.
+15–16. Checking outputs, and a specific caution on translation.
+17–19. What CPC still has to decide, four takeaways, questions.
+
+Presenter notes on every slide carry the timing, the things worth saying out
+loud, and the traps. They are written to be read by someone other than the
+person who wrote them.
 
 ---
 
-## Checks
+## What is asserted, and what is not
 
-- No horizontal overflow from 320px to 1920px; no console errors
-- Landmarks, heading order, and skip link in place
-- Accordion uses `aria-expanded` / `aria-controls`; nav sets `aria-current`;
-  the decisions toggle uses `aria-pressed`
-- Form errors wire up via `aria-invalid` and `aria-errormessage`
-- No `100vh`, no scroll listeners, no layout-animating properties
-- `backdrop-filter` only on the sticky masthead
-- Single column below 720px
+**CPC facts** are limited to what is published on cpc-nyc.org: the logo, the
+brand red (`#ED1C24`, sampled from the mark), the mission, and the founding
+year. Nothing about CPC's policies, tools, staffing, clients, or current
+practice is asserted anywhere, because none of that was available to check.
+
+**Training content** — how these tools work, what they are good and bad at, the
+confidentiality guidance, prompt technique — is the substance of the session and
+is stated plainly.
+
+**Deliberately absent:** no model names, version numbers, pricing, or usage
+limits. Those change on a timescale shorter than the life of a deck, and a
+slide that is quietly out of date is worse than no slide. Tool specifics belong
+in conversation, not in the file.
+
+Anything CPC has to decide is marked in amber rather than filled in with a
+plausible guess.
+
+---
+
+## Design
+
+**Type.** Outfit for display, Public Sans for body. Design-space scale
+17/19/21/24/27/34/42/54/92 — sized so the smallest text still reads from the
+back of a meeting room.
+
+**Colour.** `#ED1C24` is CPC's logo red. Behind white it is 4.38:1, which
+clears AA for large text only, so every slide using it as a ground carries
+display-size type exclusively — that is why slide 9 has no small print on it. A
+deeper red (`#C81219`, 5.90:1) takes anything smaller. All text pairings meet
+WCAG AA.
+
+**Spacing.** 8px base.
+
+**Motion.** Transform and opacity only; disabled under `prefers-reduced-motion`.
+
+**Checks.** Every slide measured against the 720px frame — none overflow. No
+console errors. Navigation, notes, overview, number-jump, deep links, and print
+all exercised.
+
+---
+
+An earlier version of this repo was a public course landing page, before the
+brief was clarified. It is in the git history at `0683e07` if any of it is
+useful.
