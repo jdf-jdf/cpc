@@ -409,6 +409,28 @@ body.notes-open .progress { right: var(--notes-w); }
   line-height: 1.4;
 }
 
+/* Who makes them — four discrete, comparable products */
+.vendors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.vendors li {
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 20px;
+}
+.vendors h3 { font-size: var(--t-base); margin-bottom: 2px; }
+.vendors__by {
+  font-family: var(--font-display);
+  font-size: var(--t-fine);
+  font-weight: 600;
+  color: var(--brand-deep) !important;
+  margin-bottom: var(--s-2);
+}
+.vendors p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.4; }
+
 /* Chat / Cowork / Code — three discrete, comparable things */
 .surfaces {
   display: grid;
