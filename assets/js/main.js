@@ -12,34 +12,11 @@
   'use strict';
 
   /* ------------------------------------------------------------------------
-     Configuration — the one block to edit before launch.
+     This page is a draft concept, so the form deliberately goes nowhere. It
+     validates and confirms so the interaction can be reviewed, and it says so
+     on screen — it does not POST, store, or transmit anything. Wiring it up is
+     a decision for CPC, not a default this draft should quietly make.
      ------------------------------------------------------------------------ */
-
-  var CONFIG = {
-    /* Where the registration form POSTs. Until this is set, the form shows
-       its error state and points people at the phone numbers, which is the
-       honest fallback: nothing silently disappears. */
-    registrationEndpoint: '',
-
-    /* Shown in the error state and the success state. */
-    fallbackPhoneDisplay: '(212) 941-0030',
-    fallbackPhoneHref: '+12129410030',
-
-    /* Per-center callback line, echoed in the success message. */
-    centerPhones: {
-      manhattan: '(212) 941-0030',
-      brooklyn: '(718) 492-0409',
-      queens: '(718) 358-8899',
-      unsure: '(212) 941-0030'
-    },
-
-    centerNames: {
-      manhattan: 'Manhattan',
-      brooklyn: 'Brooklyn',
-      queens: 'Queens',
-      unsure: 'CPC'
-    }
-  };
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -275,19 +252,13 @@
     }
 
     function showError(message) {
-      errorBox.innerHTML = message;
+      errorBox.textContent = message;
       errorBox.hidden = false;
     }
 
     function clearError() {
       errorBox.hidden = true;
       errorBox.textContent = '';
-    }
-
-    function phoneFallbackMessage() {
-      return 'We could not send your registration just now. Please call ' +
-        '<a href="tel:' + CONFIG.fallbackPhoneHref + '">' + CONFIG.fallbackPhoneDisplay +
-        '</a> and we will sign you up over the phone. Your seat is not lost.';
     }
 
     form.addEventListener('submit', function (event) {
@@ -301,62 +272,20 @@
         return;
       }
 
+      /* A short pause so the loading state is visible when demonstrating the
+         flow. Nothing is sent — see the note at the top of this file. */
       setLoading(true);
-
-      var data = {
-        name: document.getElementById('f-name').value.trim(),
-        phone: document.getElementById('f-phone').value.trim(),
-        email: document.getElementById('f-email').value.trim(),
-        center: document.getElementById('f-center').value,
-        language: document.getElementById('f-language').value,
-        notes: document.getElementById('f-notes').value.trim()
-      };
-
-      if (!CONFIG.registrationEndpoint) {
-        /* No endpoint wired up yet. Fail loudly and usefully rather than
-           pretending the submission went somewhere. */
-        window.setTimeout(function () {
-          setLoading(false);
-          showError(phoneFallbackMessage());
-        }, 400);
-        return;
-      }
-
-      fetch(CONFIG.registrationEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(function (response) {
-          if (!response.ok) { throw new Error('Request failed: ' + response.status); }
-          return response;
-        })
-        .then(function () {
-          setLoading(false);
-          showSuccess(data);
-        })
-        .catch(function () {
-          setLoading(false);
-          showError(phoneFallbackMessage());
-        });
+      window.setTimeout(function () {
+        setLoading(false);
+        showSuccess();
+      }, 650);
     });
 
-    function showSuccess(data) {
-      var centerName = CONFIG.centerNames[data.center] || 'CPC';
-      var centerPhone = CONFIG.centerPhones[data.center] || CONFIG.fallbackPhoneDisplay;
-
-      successDetail.textContent = data.center === 'queens'
-        ? 'The Queens group is full, so you are on the waitlist. ' + centerName +
-          ' staff will call ' + data.phone + ' as soon as a seat opens, and you are ' +
-          'ahead of anyone who registers after today.'
-        : centerName + ' staff will call ' + data.phone +
-          ' within two business days to confirm your seat.';
-
-      var alt = successBox.querySelector('.form__success-alt');
-      if (alt) {
-        alt.textContent = 'If you have not heard from us by then, call ' + centerPhone +
-          ' and ask for the AI Basics coordinator.';
-      }
+    function showSuccess() {
+      successDetail.textContent =
+        'Nothing was sent. In a live version this would confirm the sign-up ' +
+        'and say what happens next — which depends on who handles intake and ' +
+        'how quickly they can respond.';
 
       form.hidden = true;
       successBox.hidden = false;
@@ -387,6 +316,38 @@
   }
 
   /* ------------------------------------------------------------------------
+     6. Open-questions toggle
+
+     Counts every unresolved decision on the page and lets the presenter light
+     them all up at once. The count comes from the DOM rather than a hardcoded
+     number, so it stays honest as items get answered and markers removed.
+     ------------------------------------------------------------------------ */
+
+  function initDecisions() {
+    var toggle = document.getElementById('decisions-toggle');
+    var label = document.getElementById('decisions-label');
+    var count = document.getElementById('decisions-count');
+    if (!toggle) { return; }
+
+    var total = document.querySelectorAll('.tbd').length;
+
+    if (!total) {
+      /* Every question answered — the control has nothing left to show. */
+      toggle.hidden = true;
+      return;
+    }
+
+    count.textContent = total;
+
+    toggle.addEventListener('click', function () {
+      var on = toggle.getAttribute('aria-pressed') === 'true';
+      toggle.setAttribute('aria-pressed', on ? 'false' : 'true');
+      document.body.classList.toggle('show-decisions', !on);
+      label.textContent = on ? 'Highlight open questions' : 'Hide open questions';
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      Boot
      ------------------------------------------------------------------------ */
 
@@ -396,6 +357,7 @@
     initScrollSpy();
     initAccordion();
     initForm();
+    initDecisions();
   }
 
   if (document.readyState === 'loading') {
