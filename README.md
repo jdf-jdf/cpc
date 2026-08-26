@@ -82,9 +82,9 @@ session, and that was the only real information you were going to get.
 
 ## Before you present
 
-Presenter is Jo Flores, the exercise runs on Claude, and follow-up goes to
-hi@joflores.com. **One blank is left, marked on-screen in amber: the date on
-slide 1.**
+Nothing is left blank. Presenter is Jo Flores, the exercise runs on Claude, and
+follow-up goes to hi@joflores.com. The deck carries no date, so it can be
+presented more than once without editing.
 
 Two things that follow from those answers, both already written into the
 presenter notes:
@@ -93,9 +93,7 @@ presenter notes:
   The slide no longer defers to a policy — it states the default. If someone
   asks whether this is policy, say exactly that: nothing is written down yet,
   this is the safe default until it is, and writing it down is the first item on
-  slide 20. Do not imply it has been approved somewhere it has not. CPC's
-  existing confidentiality obligations to clients are unaffected by any of this
-  and continue to apply on top of it.
+  slide 20. Do not imply it has been approved somewhere it has not.
 - **Using Claude today is not CPC approving Claude.** Slide 20 still asks which
   tools are approved, and those two need to stay separate out loud or the
   session accidentally announces a decision nobody made. Slide 9's notes now
@@ -222,8 +220,14 @@ tell you to disclose which tool the examples use. If CPC runs on Google
 Workspace or Microsoft 365, the genuinely useful fact on that slide is that
 there is probably an AI already sitting inside it.
 
-Anything CPC has to decide is marked in amber rather than filled in with a
-plausible guess.
+Nothing on a slide is a plausible guess. Everything CPC has yet to decide is on
+slide 20 as an open question rather than stated as settled.
+
+The deck keeps an amber marker style for anything unresolved — wrap it in
+`<span class="tbd">…</span>` and it shows up highlighted on the slide, legible
+from the back of the room. Nothing currently uses it. If something comes up
+between now and the session that you want visible rather than forgotten, that
+is what it is for.
 
 ---
 
