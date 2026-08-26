@@ -82,17 +82,30 @@ session, and that was the only real information you were going to get.
 
 ## Before you present
 
-Filled-in blanks are marked on-screen in amber, so you can see what is missing
-from the back of the room:
+Presenter is Jo Flores, the exercise runs on Claude, and follow-up goes to
+hi@joflores.com. **One blank is left, marked on-screen in amber: the date on
+slide 1.**
 
-1. **Slide 1** — presenter name and date.
-2. **Slide 14** — check CPC's actual confidentiality and data policy and quote
-   their language rather than the slide's. If a policy staff already signed
-   exists, name it; the session then lands as a familiar rule applied to a new
-   tool rather than a new rule to learn.
-3. **Slide 19** — decide which tool the room uses for the hands-on exercise and
-   whether anyone needs an account before they walk in.
-4. **Slide 22** — who to follow up with.
+Two things that follow from those answers, both already written into the
+presenter notes:
+
+- **There is no written AI data rule at CPC to quote, so slide 15 is the rule.**
+  The slide no longer defers to a policy — it states the default. If someone
+  asks whether this is policy, say exactly that: nothing is written down yet,
+  this is the safe default until it is, and writing it down is the first item on
+  slide 20. Do not imply it has been approved somewhere it has not. CPC's
+  existing confidentiality obligations to clients are unaffected by any of this
+  and continue to apply on top of it.
+- **Using Claude today is not CPC approving Claude.** Slide 20 still asks which
+  tools are approved, and those two need to stay separate out loud or the
+  session accidentally announces a decision nobody made. Slide 9's notes now
+  tell you to disclose up front that the deck was drafted with Claude and the
+  exercise uses it — a slide that works hard to be even-handed about four
+  vendors is only worth something if the room knows which one you came in with.
+
+Check before the day that everyone can actually sign in. If accounts are not
+sorted, run slide 19 on the screen with the room calling out the prompt; it
+works nearly as well and beats spending the ten minutes on logins.
 
 ---
 
