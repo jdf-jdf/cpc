@@ -41,14 +41,18 @@
   --pending-on-ink:   #FFD9A0;
   --pending-wash-ink: rgba(255, 196, 107, 0.16);
 
-  /* Status — also the traffic-light roles on slides 10–12 */
+  /* Status — also the traffic-light roles on the green/amber/red slides and
+     the work map. Every wash carries --text at 15:1 or better; each light's
+     own colour clears AA on its own wash. */
   --ok:           #2C6E3F;   /* 5.62:1 on canvas */
   --ok-wash:      #ECF3ED;
   --go:           var(--ok);
   --go-wash:      var(--ok-wash);
   --slow:         var(--pending);
   --slow-wash:    var(--pending-wash);
-  --stop-wash:    rgba(23, 18, 16, 0.26);
+  --no:           var(--brand-deep);  /* 5.19:1 on --no-wash */
+  --no-wash:      #FCEDEC;
+  --stop-wash:    rgba(23, 18, 16, 0.26);   /* inside the full-bleed red slide */
 
   --rule:         rgba(23, 18, 16, 0.14);
   --rule-ink:     rgba(253, 251, 248, 0.20);
@@ -359,6 +363,41 @@ body.notes-open .progress { right: var(--notes-w); }
   padding: 10px var(--s-3);
 }
 
+/* Discussion slides. Every other slide in the deck is dense; these carry one
+   question and almost nothing else, so the room can see from across it that
+   the mode has changed from listening to talking. The emptiness is the
+   device — no new colour is needed and none is spent, which keeps the red
+   slide the loudest thing in the deck. */
+.slide--ask { background: var(--canvas-warm); }
+.slide--ask::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 14px;
+  background: var(--brand);   /* decorative: carries no text */
+}
+.ask__label {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-deep);   /* 5.17:1 on --canvas-warm */
+  margin-bottom: var(--s-3);
+}
+.ask__q {
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  max-width: 21ch;
+}
+.ask__prime {
+  margin-top: var(--s-5);
+  font-size: var(--t-md);
+  color: var(--text-muted);   /* 7.28:1 on --canvas-warm */
+  line-height: 1.4;
+  max-width: 54ch;
+}
+
 /* --------------------------------------------------------------------------
    Slide components
    -------------------------------------------------------------------------- */
@@ -377,22 +416,31 @@ body.notes-open .progress { right: var(--notes-w); }
 .biglist li { font-size: var(--t-sm); line-height: 1.4; }
 .biglist--muted li { color: var(--text-muted); }
 
-.handsup { display: grid; gap: var(--s-2); max-width: 40ch; }
-.handsup li {
-  display: flex; align-items: center; gap: var(--s-3);
-  font-size: var(--t-md);
-  line-height: 1.3;
+/* The same discussion prompt, folded into a teaching slide rather than given
+   a slide of its own. Same red bar as .slide--ask, turned on its side, so the
+   presenter reads both as the same instruction: stop, ask, wait. */
+.ask {
+  margin-top: var(--s-5);
+  background: var(--canvas-warm);
+  border-left: 6px solid var(--brand);
+  border-radius: 0 10px 10px 0;
+  padding: 14px var(--s-3);
 }
-.handsup__n {
-  flex: none;
-  width: 48px; height: 48px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--brand-deep);
-  color: #FFFFFF;
-  font-family: var(--font-display);
-  font-size: var(--t-sm);
+.ask__strip-label {
+  font-size: var(--t-label);
   font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  margin-bottom: 4px;
+}
+.ask__strip-q {
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: 60ch;
 }
 
 .negspace { margin-top: var(--s-5); }
@@ -575,18 +623,122 @@ body.notes-open .progress { right: var(--notes-w); }
 .parts h3 { font-size: var(--t-base); color: var(--on-ink); margin-bottom: 4px; }
 .parts p { font-size: var(--t-fine); color: var(--on-ink-muted); line-height: 1.45; }
 
-.openq { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
+/* Five open questions, five across — deliberately the same shape as the five
+   pillars, so the deck closes on "five things to decide" answering "five
+   things to protect". Three across wrapped to two rows and ran into the
+   slide number. */
+.openq { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
 .openq li {
   background: var(--pending-wash);
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px;
 }
 .openq h3 { font-size: var(--t-sm); color: var(--pending); margin-bottom: 6px; }
 .openq p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.45; }
 
-.takeaways { display: grid; gap: var(--s-3); max-width: 74ch; }
-.takeaways li { display: flex; gap: var(--s-3); align-items: baseline; }
-.takeaways__n {
+/* The five things the session exists to protect, after the Center for Humane
+   Technology. Laid out as five standing columns under five rules, which is
+   what the word is doing. */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+.pillars li {
+  border-top: 3px solid var(--brand);
+  padding-top: 12px;
+}
+.pillars__n {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-deep);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--s-1);
+}
+.pillars h3 { font-size: var(--t-sm); margin-bottom: 6px; }
+.pillars p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.45; }
+
+/* The traffic lights applied to the four kinds of work this team actually
+   does. Column order matches the order the lights were taught in, so the
+   grid reads green across the top, amber through the middle, red along the
+   bottom — the shape of the rule, in their own work. */
+.workmap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto repeat(3, auto);
+  gap: 6px var(--s-3);
+}
+/* Subgrid so the heading and the three rows line up across all four columns:
+   the point of the slide is that green sits along the top and red along the
+   bottom in every kind of work, and ragged rows lose that. Falls back to
+   four independent columns where subgrid is unsupported — same content,
+   just not aligned. */
+.workmap__col {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  gap: 6px;
+}
+.workmap__col h3 {
+  font-size: var(--t-base);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--rule);
+  align-self: end;
+}
+.workmap__col ul {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  gap: 6px;
+}
+.workmap__col li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: var(--t-fine);
+  line-height: 1.35;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.wm__dot {
+  flex: none;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.wm--go        { background: var(--go-wash); }
+.wm--go   .wm__dot { background: var(--go); }
+.wm--slow      { background: var(--slow-wash); }
+.wm--slow .wm__dot { background: var(--slow); }
+.wm--stop      { background: var(--no-wash); }
+.wm--stop .wm__dot { background: var(--no); }
+
+.workmap__key {
+  display: flex; gap: var(--s-4);
+  margin-bottom: var(--s-3);
+}
+.workmap__key span {
+  display: flex; align-items: center; gap: 8px;
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.workmap__key span::before {
+  content: '';
+  width: 11px; height: 11px; border-radius: 50%;
+  background: currentColor;
+}
+.wm-key--go   { color: var(--go); }
+.wm-key--slow { color: var(--slow); }
+.wm-key--stop { color: var(--no); }
+
+/* Closing rules. The rule itself is full-strength; the sentence explaining it
+   steps back, so the five bold openings can be read alone from the back. */
+.rules { display: grid; gap: var(--s-3); max-width: 76ch; }
+.rules li { display: flex; gap: var(--s-3); align-items: baseline; }
+.rules__n {
   flex: none;
   font-family: var(--font-display);
   font-size: var(--t-lg);
@@ -594,7 +746,12 @@ body.notes-open .progress { right: var(--notes-w); }
   color: var(--on-ink-brand);
   font-variant-numeric: tabular-nums;
 }
-.takeaways p { font-size: var(--t-md); line-height: 1.35; }
+.rules p {
+  font-size: var(--t-md);
+  line-height: 1.35;
+  color: var(--on-ink-muted);
+}
+.rules strong { color: var(--on-ink); font-weight: 700; }
 
 /* Anything CPC has not decided */
 .tbd {
@@ -817,13 +974,34 @@ body.notes-open .progress { right: var(--notes-w); }
   .slide:last-of-type { page-break-after: auto; break-after: auto; }
   .slide::after { position: static; display: block; margin-bottom: 6mm; color: #555555; }
 
-  .slide__h, .title__h, .stop__h, .bigrule { font-size: 26pt; color: #000000 !important; }
-  .statement, .do__lead, .takeaways p, .handsup li { font-size: 13pt; }
-  .slide__kicker, .cardlist p, .parts p, .checks p, .openq p, .compare__note { font-size: 10pt; color: #333333 !important; }
+  .slide__h, .title__h, .stop__h, .bigrule, .ask__q { font-size: 26pt; color: #000000 !important; }
+  .statement, .do__lead, .rules p, .ask__prime, .ask__strip-q { font-size: 13pt; }
+  .slide__kicker, .cardlist p, .parts p, .checks p, .openq p, .compare__note,
+  .pillars p, .workmap__col li { font-size: 10pt; color: #333333 !important; }
   .cardlist li, .openq li, .compare__col, .stop__list li { background: #FFFFFF !important; border: 1pt solid #BBBBBB; }
   .titlemark { width: 40px; }
-  .do__warn, .handsup__n { background: #000000 !important; color: #FFFFFF !important; }
+  .do__warn { background: #000000 !important; color: #FFFFFF !important; }
   .tbd { background: #FFFFFF !important; color: #000000 !important; outline: 1pt solid #000000; }
+
+  .slide--ask::before { display: none; }
+  .ask { background: #FFFFFF !important; border-left: 2pt solid #000000; }
+  .pillars li { border-top-color: #000000; }
+
+  /* The work map is nothing but a colour code, and three mid-tone dots land on
+     top of each other in grayscale. On paper the dots become their words. */
+  .workmap__col li { background: #FFFFFF !important; border: 1pt solid #BBBBBB; }
+  .workmap__key span, .wm__dot {
+    color: #000000 !important;
+    font-size: 8pt; font-weight: 700; letter-spacing: 0.08em;
+  }
+  .workmap__key span::before { display: none; }
+  .wm__dot {
+    width: auto; height: auto; margin-top: 0;
+    border-radius: 0; background: none !important;
+  }
+  .wm--go   .wm__dot::before { content: 'GO'; }
+  .wm--slow .wm__dot::before { content: 'CHECK'; }
+  .wm--stop .wm__dot::before { content: 'NEVER'; }
 
   /* The whole point of a printed handout: the notes come with it. */
   .notes {
