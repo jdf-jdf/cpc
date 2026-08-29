@@ -636,6 +636,53 @@ body.notes-open .progress { right: var(--notes-w); }
 .openq h3 { font-size: var(--t-sm); color: var(--pending); margin-bottom: 6px; }
 .openq p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.45; }
 
+/* Three rounds of the same request, each one narrower. Prompt, then what came
+   back, then what it teaches — read down a column, then across. */
+.rounds {
+  margin-top: var(--s-3);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-3);
+}
+.rounds > li { display: grid; gap: 12px; align-content: start; }
+.rounds__say {
+  display: flex; align-items: center; gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 8px 16px 8px 8px;
+  font-family: var(--font-display);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  justify-self: start;
+}
+.rounds__n {
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--brand-deep);
+  color: #FFFFFF;
+  font-size: var(--t-label);
+  font-weight: 700;
+}
+.rounds__art {
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 8px;
+  display: grid; place-items: center;
+}
+.rounds__art svg { width: auto; height: 138px; color: var(--ink); display: block; }
+/* The lemons are defined by their outline, not their fill — a yellow light
+   enough to read as a lemon cannot clear 3:1 against white on its own. */
+.rounds__fruit { fill: #E8B923; }
+.rounds > li > p:last-child {
+  font-size: var(--t-fine);
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
 /* A phone's next-word suggestion bar, which is the whole mechanism in a shape
    everyone in the room already recognises. Generic keyboard-bar conventions
    rather than any one vendor's chrome. */
