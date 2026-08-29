@@ -390,6 +390,15 @@ body.notes-open .progress { right: var(--notes-w); }
   line-height: 1.06;
   max-width: 21ch;
 }
+/* The paper exercise: three or four words, given the whole slide. These are
+   instructions to carry out rather than questions to answer, so they run
+   larger than a discussion prompt and the label changes accordingly. */
+.ask__q--xl {
+  font-size: var(--t-3xl);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  max-width: 15ch;
+}
 .ask__prime {
   margin-top: var(--s-5);
   font-size: var(--t-md);
@@ -639,7 +648,6 @@ body.notes-open .progress { right: var(--notes-w); }
 /* Three rounds of the same request, each one narrower. Prompt, then what came
    back, then what it teaches — read down a column, then across. */
 .rounds {
-  margin-top: var(--s-3);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-3);
