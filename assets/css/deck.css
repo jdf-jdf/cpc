@@ -351,16 +351,26 @@ body.notes-open .progress { right: var(--notes-w); }
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--brand-deep);
 }
+/* The rule for the exercise, carrying the same green dot as the green-light
+   slide so it reads as that rule rather than a new one. It said "green light
+   only" in red before, which argued with itself. */
 .do__warn {
   margin-top: var(--s-5);
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 14px;
+  background: #FFFFFF;
+  border: 2px solid var(--go);
+  border-radius: 999px;
+  padding: 10px var(--s-3) 10px 12px;
   font-family: var(--font-display);
   font-size: var(--t-base);
   font-weight: 700;
-  color: #FFFFFF;
-  background: var(--brand-deep);
-  border-radius: 8px;
-  padding: 10px var(--s-3);
+  color: var(--go);   /* 6.16:1 on white */
+}
+.do__warn-dot {
+  flex: none;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--go);
 }
 
 /* Discussion slides. Every other slide in the deck is dense; these carry one
@@ -1090,7 +1100,8 @@ body.notes-open .progress { right: var(--notes-w); }
   .pillars p, .workmap__col li { font-size: 10pt; color: #333333 !important; }
   .cardlist li, .openq li, .compare__col, .stop__list li { background: #FFFFFF !important; border: 1pt solid #BBBBBB; }
   .titlemark { width: 40px; }
-  .do__warn { background: #000000 !important; color: #FFFFFF !important; }
+  .do__warn { background: #FFFFFF !important; color: #000000 !important; border-color: #000000; }
+  .do__warn-dot { background: #000000 !important; }
   .tbd { background: #FFFFFF !important; color: #000000 !important; outline: 1pt solid #000000; }
 
   .slide--ask::before { display: none; }
