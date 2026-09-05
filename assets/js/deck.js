@@ -84,13 +84,15 @@
      Navigation
      ------------------------------------------------------------------------ */
 
-  function show(next, viaHash) {
+  function show(next, viaHash, backwards) {
     index = Math.max(0, Math.min(slides.length - 1, next));
 
     slides.forEach(function (slide, i) {
       slide.classList.toggle('is-current', i === index);
       slide.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+      if (i !== index) { resetSteps(slide, false); }
     });
+    resetSteps(slides[index], !!backwards);
 
     curEl.textContent = index + 1;
     progressFill.style.width = ((index + 1) / slides.length * 100) + '%';
@@ -116,8 +118,42 @@
     wakeHud();
   }
 
-  function next() { if (index < slides.length - 1) { show(index + 1); } }
-  function prev() { if (index > 0) { show(index - 1); } }
+  /* ------------------------------------------------------------------------
+     Steps: elements marked data-step reveal one click at a time before the
+     deck moves on. They keep their space in the layout the whole time, so a
+     slide never reflows as it fills in.
+     ------------------------------------------------------------------------ */
+
+  function stepsIn(slide) {
+    return Array.prototype.slice.call(slide.querySelectorAll('[data-step]'));
+  }
+
+  function resetSteps(slide, allShown) {
+    stepsIn(slide).forEach(function (el) {
+      el.classList.toggle('is-shown', !!allShown);
+    });
+  }
+
+  function next() {
+    var hidden = stepsIn(slides[index]).filter(function (el) {
+      return !el.classList.contains('is-shown');
+    });
+    if (hidden.length) { hidden[0].classList.add('is-shown'); wakeHud(); return; }
+    if (index < slides.length - 1) { show(index + 1); }
+  }
+
+  function prev() {
+    var shown = stepsIn(slides[index]).filter(function (el) {
+      return el.classList.contains('is-shown');
+    });
+    if (shown.length) {
+      shown[shown.length - 1].classList.remove('is-shown');
+      wakeHud();
+      return;
+    }
+    /* Arriving backwards, a slide shows everything it had already revealed. */
+    if (index > 0) { show(index - 1, false, true); }
+  }
 
   /* ------------------------------------------------------------------------
      Panels — only one open at a time

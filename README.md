@@ -18,7 +18,7 @@ assets/
 
 | Key | |
 |---|---|
-| <kbd>&rarr;</kbd> <kbd>Space</kbd> | Next slide |
+| <kbd>&rarr;</kbd> <kbd>Space</kbd> | Next step, then next slide |
 | <kbd>&larr;</kbd> | Previous |
 | <kbd>Home</kbd> <kbd>End</kbd> | First / last |
 | <kbd>1</kbd>–<kbd>30</kbd> | Jump to a slide by number |
@@ -32,14 +32,27 @@ Slides are authored at a fixed 1280×720 and scaled to whatever screen they land
 on, so the layout you rehearse is the layout the room sees — nothing reflows on
 a projector. Verified on 16:9, 16:10 and 4:3.
 
+**Slides carry cues, not sentences.** What a slide says is the shortest thing
+that will do; everything you would actually say out loud is in the presenter
+notes. If a slide looks thin, that is deliberate — open the notes. Reading the
+deck instead of talking to the room is the failure mode it is built to prevent.
+
+**Some slides reveal on a click.** The story slides (23–25) bring in one example
+at a time, then the punchline, so the room is guessing along rather than reading
+ahead. Right-arrow or space walks the steps and then moves on; left-arrow walks
+back through them. Nothing shifts position as it appears — hidden steps hold
+their space from the start, so the layout never jumps. Every other slide
+advances the way it always did, and the printed handout shows everything.
+
 Opening the notes narrows the stage instead of covering the slide, so you can
 see both. Typing a number jumps straight to that slide, which is what you want
 when someone asks about slide 17 during questions. Every slide has a deep link
 (`index.html#/17`).
 
 **Handout:** print to PDF. One slide per page with its presenter notes
-underneath. The work map's colour code is printed as words as well as dots, so
-it survives a black-and-white printer.
+underneath. The work matrix names its lights in the row headers, so the colour
+coding survives a black-and-white printer, and every click-to-reveal step prints
+already revealed.
 
 **No wifi in the room?** The two webfonts come from Google Fonts and will not
 load offline. The deck falls back to the system sans and every slide still fits
@@ -172,10 +185,11 @@ answer versus take-your-time, which most people don't know is a setting.
 it then check. Red is the full-bleed slide: client information never goes in.
 The escalation is deliberate — red is the loudest thing in the deck.
 
-**17.** **Your work, sorted.** The lights applied to four things this team
-actually does — community events, legal help, grant writing, budgets — each with
-one green, one yellow and one red example. Laid out so green runs along the top
-and red along the bottom of all four columns.
+**17.** **Your work, sorted.** A matrix: the three lights down the side, four
+things this team actually does across the top — community events, legal help,
+grant writing, budgets. Every cell is "this kind of work, at this level of
+care", and the row headers name the light so the colour coding is labelled
+rather than remembered.
 
 **18.** Describing instead of pasting, so the red rule has a workable
 alternative.

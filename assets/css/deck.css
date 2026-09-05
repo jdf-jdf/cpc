@@ -82,6 +82,15 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
+/* Revealed one click at a time by deck.js. Opacity only — the element keeps
+   its space from the start, so the slide never reflows as it fills in. */
+[data-step] {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 300ms var(--ease), transform 300ms var(--ease);
+}
+[data-step].is-shown { opacity: 1; transform: none; }
+
 html, body { height: 100%; }
 
 body {
@@ -207,6 +216,15 @@ body.notes-open .progress { right: var(--notes-w); }
 }
 .statement--tight { font-size: var(--t-md); max-width: 62ch; }
 .statement + .statement { margin-top: var(--s-4); }
+.statement + .twoup { margin-top: var(--s-5); }
+
+/* The words a prompt adds on top of the last one. Outfit ships no italic, so
+   the synthesised slant needs the colour shift to carry the emphasis. */
+.slide__h em {
+  font-style: italic;
+  color: var(--brand-deep);
+}
+.slide--ink .slide__h em { color: var(--on-ink-brand); }
 
 .pullquote {
   margin-top: var(--s-5);
@@ -430,6 +448,9 @@ body.notes-open .progress { right: var(--notes-w); }
 }
 .col__h--yes { color: var(--brand-deep); }
 .col__h--no  { color: var(--text-muted); }
+.slide--ink .col__h--yes { color: var(--on-ink-brand); }
+.slide--ink .col__h--no  { color: var(--on-ink-muted); }
+.slide--ink .biglist--muted li { color: var(--on-ink-muted); }
 
 .biglist { display: grid; gap: var(--s-2); }
 .biglist li { font-size: var(--t-sm); line-height: 1.4; }
@@ -460,20 +481,6 @@ body.notes-open .progress { right: var(--notes-w); }
   letter-spacing: -0.02em;
   line-height: 1.25;
   max-width: 60ch;
-}
-
-.negspace { margin-top: var(--s-5); }
-.negspace__lead {
-  font-size: var(--t-sm);
-  color: var(--on-ink-brand);
-  font-weight: 600;
-  margin-bottom: var(--s-2);
-}
-.negspace__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-1) var(--s-6); }
-.negspace__list li {
-  font-size: var(--t-sm);
-  color: var(--on-ink-muted);
-  line-height: 1.4;
 }
 
 /* Who makes them — four discrete, comparable products */
@@ -628,18 +635,20 @@ body.notes-open .progress { right: var(--notes-w); }
 .compare__col--good .compare__tag { color: var(--ok); }
 .compare__text { font-size: var(--t-sm); line-height: 1.45; }
 
-.parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4) var(--s-6); }
-.parts li { display: flex; gap: var(--s-3); align-items: flex-start; }
+/* Four ordered parts, so they read along one line rather than round a grid. */
+.parts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+.parts li { border-top: 3px solid var(--on-ink-brand); padding-top: 12px; }
 .parts__n {
-  flex: none;
+  display: block;
   font-family: var(--font-display);
-  font-size: var(--t-xl);
+  font-size: var(--t-lg);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 1;
   color: var(--on-ink-brand);
   font-variant-numeric: tabular-nums;
+  margin-bottom: var(--s-1);
 }
-.parts h3 { font-size: var(--t-base); color: var(--on-ink); margin-bottom: 4px; }
+.parts h3 { font-size: var(--t-sm); color: var(--on-ink); margin-bottom: 6px; }
 .parts p { font-size: var(--t-fine); color: var(--on-ink-muted); line-height: 1.45; }
 
 /* Five open questions, five across — deliberately the same shape as the five
@@ -812,78 +821,60 @@ body.notes-open .progress { right: var(--notes-w); }
 .pillars h3 { font-size: var(--t-sm); margin-bottom: 6px; }
 .pillars p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.45; }
 
-/* The traffic lights applied to the four kinds of work this team actually
-   does. Column order matches the order the lights were taught in, so the
-   grid reads green across the top, amber through the middle, red along the
-   bottom — the shape of the rule, in their own work. */
-.workmap {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: auto repeat(3, auto);
-  gap: 6px var(--s-3);
+/* The traffic lights crossed with the four kinds of work this team actually
+   does. A real table: the row header names the light, so the colour coding is
+   labelled rather than remembered, and every cell is the answer to "this kind
+   of work, at this level of care". */
+.matrix {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 6px;
+  margin-top: var(--s-2);
 }
-/* Subgrid so the heading and the three rows line up across all four columns:
-   the point of the slide is that green sits along the top and red along the
-   bottom in every kind of work, and ragged rows lose that. Falls back to
-   four independent columns where subgrid is unsupported — same content,
-   just not aligned. */
-.workmap__col {
-  display: grid;
-  grid-row: span 4;
-  grid-template-rows: subgrid;
-  gap: 6px;
-}
-.workmap__col h3 {
+.matrix__corner { width: 168px; }
+.matrix thead th {
+  text-align: left;
+  vertical-align: bottom;
+  font-family: var(--font-display);
   font-size: var(--t-base);
-  padding-bottom: 6px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding: 0 12px 10px;
   border-bottom: 2px solid var(--rule);
-  align-self: end;
 }
-.workmap__col ul {
-  display: grid;
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  gap: 6px;
-}
-.workmap__col li {
-  display: flex; gap: 10px; align-items: flex-start;
+.matrix tbody th {
+  text-align: left;
+  vertical-align: middle;
+  font-family: var(--font-display);
   font-size: var(--t-fine);
-  line-height: 1.35;
-  border-radius: 8px;
-  padding: 8px 10px;
-}
-.wm__dot {
-  flex: none;
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  margin-top: 6px;
-}
-.wm--go        { background: var(--go-wash); }
-.wm--go   .wm__dot { background: var(--go); }
-.wm--slow      { background: var(--slow-wash); }
-.wm--slow .wm__dot { background: var(--slow); }
-.wm--stop      { background: var(--no-wash); }
-.wm--stop .wm__dot { background: var(--no); }
-
-.workmap__key {
-  display: flex; gap: var(--s-4);
-  margin-bottom: var(--s-3);
-}
-.workmap__key span {
-  display: flex; align-items: center; gap: 8px;
-  font-size: var(--t-label);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  padding: 12px 12px 12px 0;
 }
-.workmap__key span::before {
-  content: '';
-  width: 11px; height: 11px; border-radius: 50%;
-  background: currentColor;
+.matrix tbody td {
+  vertical-align: top;
+  font-size: var(--t-fine);
+  line-height: 1.35;
+  padding: 12px;
+  border-radius: 8px;
 }
-.wm-key--go   { color: var(--go); }
-.wm-key--slow { color: var(--slow); }
-.wm-key--stop { color: var(--no); }
+.mx__dot {
+  display: inline-block;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.mx--go   th { color: var(--go); }
+.mx--go   td { background: var(--go-wash); }
+.mx--go   .mx__dot { background: var(--go); }
+.mx--slow th { color: var(--slow); }
+.mx--slow td { background: var(--slow-wash); }
+.mx--slow .mx__dot { background: var(--slow); }
+.mx--stop th { color: var(--no); }
+.mx--stop td { background: var(--no-wash); }
+.mx--stop .mx__dot { background: var(--no); }
 
 /* Closing rules. The rule itself is full-strength; the sentence explaining it
    steps back, so the five bold openings can be read alone from the back. */
@@ -1089,8 +1080,8 @@ body.notes-open .progress { right: var(--notes-w); }
 .notes { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .slide, .progress__fill, .hud, .grid__item { transition: none; }
-  .slide { transform: none; }
+  .slide, .progress__fill, .hud, .grid__item, [data-step] { transition: none; }
+  .slide, [data-step] { transform: none; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1135,25 +1126,16 @@ body.notes-open .progress { right: var(--notes-w); }
   .do__warn-dot { background: #000000 !important; }
   .tbd { background: #FFFFFF !important; color: #000000 !important; outline: 1pt solid #000000; }
 
+  [data-step] { opacity: 1 !important; transform: none !important; }
   .slide--ask::before { display: none; }
   .ask { background: #FFFFFF !important; border-left: 2pt solid #000000; }
   .pillars li { border-top-color: #000000; }
 
-  /* The work map is nothing but a colour code, and three mid-tone dots land on
-     top of each other in grayscale. On paper the dots become their words. */
-  .workmap__col li { background: #FFFFFF !important; border: 1pt solid #BBBBBB; }
-  .workmap__key span, .wm__dot {
-    color: #000000 !important;
-    font-size: 8pt; font-weight: 700; letter-spacing: 0.08em;
-  }
-  .workmap__key span::before { display: none; }
-  .wm__dot {
-    width: auto; height: auto; margin-top: 0;
-    border-radius: 0; background: none !important;
-  }
-  .wm--go   .wm__dot::before { content: 'GO'; }
-  .wm--slow .wm__dot::before { content: 'CHECK'; }
-  .wm--stop .wm__dot::before { content: 'NEVER'; }
+  /* The matrix is a colour code, and three mid-tone washes come out the same
+     grey. On paper the row headers carry it, so the washes can go. */
+  .matrix tbody td { background: #FFFFFF !important; border: 1pt solid #BBBBBB; font-size: 9pt; }
+  .matrix thead th, .matrix tbody th { color: #000000 !important; font-size: 9pt; }
+  .mx__dot { border: 1pt solid #000000; background: none !important; }
 
   /* The whole point of a printed handout: the notes come with it. */
   .notes {
