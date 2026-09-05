@@ -655,6 +655,37 @@ body.notes-open .progress { right: var(--notes-w); }
 .openq h3 { font-size: var(--t-sm); color: var(--pending); margin-bottom: 6px; }
 .openq p { font-size: var(--t-fine); color: var(--text-muted); line-height: 1.45; }
 
+/* The story exercise. Same three-slide shape each time, because the repetition
+   is the argument: the answers narrow, and there are still three of them. */
+.told__label {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.told {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.told li {
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 20px;
+}
+.told h3 {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  margin-bottom: 10px;
+}
+.told p { font-size: var(--t-base); line-height: 1.35; }
+
 /* Three rounds of the same request, each one narrower. Prompt, then what came
    back, then what it teaches — read down a column, then across. */
 .rounds {
