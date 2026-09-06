@@ -379,6 +379,14 @@ programmatically, not by eye.
 the nine-step scale, and no line exceeds 95 characters. Re-measured with the
 webfonts blocked, since that is what an offline room gets.
 
+The one exemption is the drawn phone keyboard on slide 5. Its letters are
+smaller than the floor and its "Cancel" is iOS blue rather than a colour that
+would clear AA, because it is a depiction of a interface rather than text anyone
+is meant to read — it is `aria-hidden`, assistive tech skips it, and WCAG
+exempts incidental text of this kind. The audit skips `aria-hidden` subtrees for
+the same reason. The parts of the phone that do carry the lesson — the message
+and the three suggested words — are full size and fully contrasted.
+
 **Structure.** One `h1`, every slide carries a heading, all images have `alt`,
 the work matrix uses real `<th scope>` headers, the SVG drawings carry
 `role="img"` and labels, and `lang` is set. Non-current slides are
