@@ -167,8 +167,8 @@ the slide that gives the traffic lights a reason: without it they read as CPC
 covering itself, with it they read as protecting the thing CPC is.
 
 **10.** Who makes them: ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google),
-Copilot (Microsoft). Deliberately no pricing, model names, or benchmark scores —
-see *What is asserted* below.
+Copilot (Microsoft). Deliberately no pricing, model names, or benchmark scores,
+and no help picking one — see *What is asserted* below.
 
 **11.** The three surfaces: **Chat** (a window, touches nothing), **Cowork**
 (works on your real documents and files, carries a multi-step job to a finished
@@ -308,12 +308,15 @@ update and nobody in the room has to memorise them.
 **The vendor slide (10) is written to be even-handed on purpose.** This deck was
 drafted with Claude, so a comparison that flattered Anthropic would be worth
 nothing to you in that room. It gives each of the four the same shape — product,
-maker, one line — and then says plainly that they leapfrog each other and the
-choice should turn on what CPC approves, what the data terms say, and what is
-already built into the software staff open every morning. The presenter notes
-tell you to disclose which tool the examples use. If CPC runs on Google
-Workspace or Microsoft 365, the genuinely useful fact on that slide is that
-there is probably an AI already sitting inside it.
+maker, a line or two — and stops there.
+
+It does not help anyone pick one, because this is an informational session and
+picking is not what the hour is for. The notes say that outright: if the
+conversation turns to which tool CPC should use, name it as out of scope and
+send it to the open-questions slide at the end. They also tell you to disclose
+which tool the examples use. And they carry the one genuinely useful fact — if
+CPC runs on Google Workspace or Microsoft 365, there is probably an AI already
+sitting inside it, which is worth knowing whatever anyone decides later.
 
 Nothing on a slide is a plausible guess. Everything CPC has yet to decide is on
 slide 27 as an open question rather than stated as settled.
