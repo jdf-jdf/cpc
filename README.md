@@ -347,6 +347,15 @@ thing in the session.
 **Spacing.** 8px base — 2/4/6/8/10/12/14/16/20/24/32/40/48/64/80. Audited: every
 declared margin and padding in the deck sits on it.
 
+
+**Motion.** Transform and opacity only; disabled under `prefers-reduced-motion`.
+
+**Checks.** Every slide measured against the 720px frame — none overflow, and
+none intrude on the 80px margin. Measured again with the webfonts blocked, since
+that is what an offline room gets: still no overflow. Centring verified at 16:9,
+16:10 and 4:3 with the notes pane open and closed. No console errors.
+Navigation, notes, overview, number-jump, deep links, and print all exercised.
+
 ---
 
 ## Accessibility
@@ -390,16 +399,6 @@ reflowing in front of a room. Two surfaces do reflow and do respond to zoom: the
 presenter notes pane, which is what a presenter actually reads from and which
 measures a true 2.00× at 200%, and the printed handout. If someone needs the
 slides themselves larger, the lever is a bigger display rather than the browser.
-
-**Spacing.** 8px base.
-
-**Motion.** Transform and opacity only; disabled under `prefers-reduced-motion`.
-
-**Checks.** Every slide measured against the 720px frame — none overflow, and
-none intrude on the 80px margin. Measured again with the webfonts blocked, since
-that is what an offline room gets: still no overflow. Centring verified at 16:9,
-16:10 and 4:3 with the notes pane open and closed. No console errors.
-Navigation, notes, overview, number-jump, deep links, and print all exercised.
 
 ---
 
