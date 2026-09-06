@@ -421,6 +421,14 @@ body.notes-open .progress { right: var(--notes-w); }
 /* The paper exercise: three or four words, given the whole slide. These are
    instructions to carry out rather than questions to answer, so they run
    larger than a discussion prompt and the label changes accordingly. */
+.ask__who {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand-deep);
+  margin-bottom: var(--s-2);
+}
 .ask__q--xl {
   font-size: var(--t-3xl);
   letter-spacing: -0.045em;
@@ -714,50 +722,36 @@ body.notes-open .progress { right: var(--notes-w); }
 }
 .told p { font-size: var(--t-base); line-height: 1.35; }
 
-/* Three rounds of the same request, each one narrower. Prompt, then what came
-   back, then what it teaches — read down a column, then across. */
-.rounds {
+/* The A/B reveal. Two halves of the room, one variable, side by side so the
+   difference is visible rather than described. */
+.groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6); }
+.groups__h {
+  font-size: var(--t-base);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid currentColor;
+}
+.groups__h--a { color: var(--text-muted); }
+.groups__h--b { color: var(--brand-deep); }
+.groups__art {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s-3);
-}
-.rounds > li { display: grid; gap: 12px; align-content: start; }
-.rounds__say {
-  display: flex; align-items: center; gap: 10px;
-  background: #FFFFFF;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 8px 16px 8px 8px;
-  font-family: var(--font-display);
-  font-size: var(--t-sm);
-  font-weight: 600;
-  justify-self: start;
-}
-.rounds__n {
-  flex: none;
-  width: 26px; height: 26px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--brand-deep);
-  color: #FFFFFF;
-  font-size: var(--t-label);
-  font-weight: 700;
-}
-.rounds__art {
+  place-items: center;
+  gap: 8px;
   background: #FFFFFF;
   border: 1px solid var(--rule);
   border-radius: 12px;
-  padding: 8px;
-  display: grid; place-items: center;
+  padding: 12px;
 }
-.rounds__art svg { width: auto; height: 138px; color: var(--ink); display: block; }
-/* The lemons are defined by their outline, not their fill — a yellow light
-   enough to read as a lemon cannot clear 3:1 against white on its own. */
+.groups__art svg { width: auto; height: 132px; color: var(--ink); display: block; }
+/* Outlined, not filled: no yellow light enough to read as a lemon clears 3:1
+   against white, so the stroke has to carry the shape. */
 .rounds__fruit { fill: #E8B923; }
-.rounds > li > p:last-child {
+.groups__col > p {
+  margin-top: 12px;
   font-size: var(--t-fine);
-  line-height: 1.45;
   color: var(--text-muted);
+  line-height: 1.35;
 }
 
 /* A phone's next-word suggestion bar, which is the whole mechanism in a shape

@@ -1,11 +1,11 @@
 # AI Basics — presenter deck for CPC staff
 
-A 30-slide beginners' AI training, built to be delivered live to a small,
+A 29-slide beginners' AI training, built to be delivered live to a small,
 internal, English-speaking CPC team. Browser-based, no build step, no
 dependencies. Open `index.html` and present.
 
 ```
-index.html            all 30 slides and their presenter notes
+index.html            all 29 slides and their presenter notes
 assets/
   css/deck.css
   js/deck.js
@@ -21,7 +21,7 @@ assets/
 | <kbd>&rarr;</kbd> <kbd>Space</kbd> | Next step, then next slide |
 | <kbd>&larr;</kbd> | Previous |
 | <kbd>Home</kbd> <kbd>End</kbd> | First / last |
-| <kbd>1</kbd>–<kbd>30</kbd> | Jump to a slide by number |
+| <kbd>1</kbd>–<kbd>29</kbd> | Jump to a slide by number |
 | <kbd>N</kbd> | Presenter notes |
 | <kbd>O</kbd> | Overview of all slides |
 | <kbd>F</kbd> | Fullscreen |
@@ -37,7 +37,7 @@ that will do; everything you would actually say out loud is in the presenter
 notes. If a slide looks thin, that is deliberate — open the notes. Reading the
 deck instead of talking to the room is the failure mode it is built to prevent.
 
-**Some slides reveal on a click.** The story slides (23–25) bring in one example
+**Some slides reveal on a click.** The story slides (22–24) bring in one example
 at a time, then the punchline, so the room is guessing along rather than reading
 ahead. Right-arrow or space walks the steps and then moves on; left-arrow walks
 back through them. Nothing shifts position as it appears — hidden steps hold
@@ -75,7 +75,7 @@ presenter talking:
   five minutes in the deck. Do not resolve it.
 - **Slide 17 — "Where would the last thing you worked on go?"** Applies the
   traffic lights to work someone did this week.
-- **Slide 28 — "What would have to be true before you would trust this with
+- **Slide 27 — "What would have to be true before you would trust this with
   something a client reads?"** The answers are usually concrete — a second
   reader, a checklist, a named approver — and that list is the beginning of the
   written policy.
@@ -85,16 +85,16 @@ into a teaching slide gets the same bar turned on its side. Both mean the same
 thing to the presenter: stop, ask, wait.
 
 Two stretches hand the room something to do rather than something to answer:
-**slides 19–22**, the paper exercise, and **slide 27**, the ten minutes on their
-own work. **Slides 23–25**, the story exercise, sit between them and are shown
-rather than done, but they carry a question worth putting to the room before you
+**slides 19–21**, the paper exercise — which needs the room split in two — and
+**slide 26**, the ten minutes on their own work. **Slides 22–24**, the story
+exercise, sit between them and are shown rather than done, but they carry a question worth putting to the room before you
 advance each one. Between the four prompts and all of that, roughly a third of
 the session is not you talking. In a room of eight that is the right ratio, and
 when you run short it is the part to protect — the slides can be skimmed, the
 conversation cannot be recovered afterwards.
 
 **Bring paper and something to draw with.** It is the only thing the session
-needs that is not a screen, and slides 19–22 do not work without it.
+needs that is not a screen, and slides 19–21 do not work without it.
 
 One trap is called out in the notes and worth repeating here. During the
 icebreaker someone may admit to something the red-light slide later forbids —
@@ -118,8 +118,8 @@ presenter notes:
   The slide no longer defers to a policy — it states the default. If someone
   asks whether this is policy, say exactly that: nothing is written down yet,
   this is the safe default until it is, and writing it down is the first item on
-  slide 28. Do not imply it has been approved somewhere it has not.
-- **Using Claude today is not CPC approving Claude.** Slide 28 still asks which
+  slide 27. Do not imply it has been approved somewhere it has not.
+- **Using Claude today is not CPC approving Claude.** Slide 27 still asks which
   tools are approved, and those two need to stay separate out loud or the
   session accidentally announces a decision nobody made. Slide 10's notes now
   tell you to disclose up front that the deck was drafted with Claude and the
@@ -127,15 +127,15 @@ presenter notes:
   vendors is only worth something if the room knows which one you came in with.
 
 Check before the day that everyone can actually sign in. If accounts are not
-sorted, run slide 27 on the screen with the room calling out the prompt; it
+sorted, run slide 26 on the screen with the room calling out the prompt; it
 works nearly as well and beats spending the ten minutes on logins.
 
 ---
 
 ## What the session covers
 
-30 slides, roughly 60–90 minutes depending on how long the discussions run.
-Slide count is a poor proxy for time here — the three paper prompts are thirty
+29 slides, roughly 60–90 minutes depending on how long the discussions run.
+Slide count is a poor proxy for time here — the two paper prompts are thirty
 seconds each and the three story slides are read at a glance, while a single
 "Ask the room" can eat five minutes and should.
 
@@ -194,24 +194,28 @@ rather than remembered.
 **18.** Describing instead of pasting, so the red rule has a workable
 alternative.
 
-**19–22.** **The paper exercise.** Three prompt slides — *Draw a tree.* → *I
-meant a lemon tree.* → *I meant a lemon tree in a pot.* — thirty seconds each, no
-screens, then everyone holds their paper up at once. Slide 22 is the takeaway.
+**19–21.** **The paper exercise.** Split the room in two. Group B closes their
+eyes; Group A gets *Draw a tree.* Then Group A closes their eyes and Group B gets
+*Draw a lemon tree.* Thirty seconds each, no screens, then everyone holds their
+paper up at once and slide 21 puts the two halves side by side.
 
-The room is the model here, which is the point. Nobody draws the same tree,
-because an unspecified detail gets filled with your own most likely one — slide
-5 arriving as something they just did rather than something they were told. And
-at step two nearly everyone adds lemons to the tree already in front of them
-rather than starting a new drawing, which is context: the description did not
-need repeating because the conversation was already carrying it. People who
-think of these tools as a search box have never met that half.
+It is a controlled experiment with one variable, run live in the room, and it
+takes about four minutes. Group A produces an oak, a palm, a Christmas tree, a
+stick with a blob on top. Group B produces lemon trees. Nobody in Group A was
+wrong — they filled the gap with their own most likely tree, which is exactly
+what the tool does, except its default is whatever was most common in everything
+it read. **The difference between the two halves of the room is two words.**
 
-Two presenter rules, both in the notes. Do not explain the point before they
-draw — the exercise dies if you do. And do not tell them at step two whether to
-add to the old drawing or start fresh, because what they choose is the evidence
-you use on slide 22.
+Say the second half too, because it is the honest one and it hands the story
+slides their argument: Group B's drawings are not identical either. Two words
+narrowed the range; they did not close it.
 
-**23–25.** **The story exercise**, shown rather than done: *"Tell me a story"* →
+Three presenter rules, all in the notes. Check that the closed eyes are actually
+closed, both times — if either half sees the other's prompt there is no variable
+and no exercise. Do not explain the point before they draw. And do not answer
+"what kind of tree", because that question *is* the experiment.
+
+**22–24.** **The story exercise**, shown rather than done: *"Tell me a story"* →
 *"I meant a story about your weekend"* → *"I meant a story about your Sunday
 afternoon"*, each with three example answers. The paper exercise showed them
 that people fill gaps with defaults; this shows what the range actually looks
@@ -226,15 +230,15 @@ someone usually spots it: the tool does not have a grandmother, and it will
 narrate a childhood it never had because that is what the words called for.
 Worth ten seconds when it comes up.
 
-**26.** Asking well, in four parts. It comes *after* both exercises on purpose —
+**25.** Asking well, in four parts. It comes *after* both exercises on purpose —
 they create the "I should have said more" moment, and this slide is the answer
 to it. Also where slide 5's role-playing point turns practical: you are not
 typing a question, you are setting up who is answering.
 
-**27.** Hands-on, ten minutes on a real CPC task: summarising an RFP, tightening
+**26.** Hands-on, ten minutes on a real CPC task: summarising an RFP, tightening
 a grant paragraph, budget justification text, a run-of-show.
 
-**28–30.** What CPC still has to decide, five house rules, questions.
+**27–29.** What CPC still has to decide, five house rules, questions.
 
 Presenter notes on every slide carry the timing, the things worth saying out
 loud, and the traps. They are written to be read by someone other than the
@@ -312,7 +316,7 @@ Workspace or Microsoft 365, the genuinely useful fact on that slide is that
 there is probably an AI already sitting inside it.
 
 Nothing on a slide is a plausible guess. Everything CPC has yet to decide is on
-slide 28 as an open question rather than stated as settled.
+slide 27 as an open question rather than stated as settled.
 
 The deck keeps an amber marker style for anything unresolved — wrap it in
 `<span class="tbd">…</span>` and it shows up highlighted on the slide, legible
