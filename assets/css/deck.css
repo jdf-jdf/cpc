@@ -489,7 +489,7 @@ body.notes-open .progress { right: var(--notes-w); }
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
-.vendors li {
+.vendors > li {
   background: #FFFFFF;
   border: 1px solid var(--rule);
   border-radius: 12px;
@@ -511,7 +511,7 @@ body.notes-open .progress { right: var(--notes-w); }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
-.surfaces li {
+.surfaces > li {
   background: #FFFFFF;
   border: 1px solid var(--rule);
   border-radius: 12px;
@@ -535,6 +535,25 @@ body.notes-open .progress { right: var(--notes-w); }
   font-weight: 600;
   color: var(--brand-deep) !important;
 }
+
+/* Short bullets inside a card or column, where a clipped sentence would have
+   done the same job worse. */
+.minilist { display: grid; gap: 6px; }
+.minilist li {
+  font-size: var(--t-fine);
+  line-height: 1.35;
+  color: var(--text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+.minilist li::before {
+  content: '';
+  position: absolute; left: 0; top: 9px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-muted);
+}
+.slide--ink .minilist li { color: var(--on-ink-muted); }
+.slide--ink .minilist li::before { background: var(--on-ink-muted); }
 
 /* Side-by-side comparison — intern vs PhD, quick vs careful */
 .vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
