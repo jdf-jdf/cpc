@@ -344,6 +344,53 @@ the work map's "never" rows get the deep red rather than the bright one, and the
 only full-bleed red in the deck is the red-light slide — so it stays the loudest
 thing in the session.
 
+**Spacing.** 8px base — 2/4/6/8/10/12/14/16/20/24/32/40/48/64/80. Audited: every
+declared margin and padding in the deck sits on it.
+
+---
+
+## Accessibility
+
+Audited by measurement rather than inspection, with the results below produced
+by a script that walks every element on every slide.
+
+**Contrast.** Every text element is measured against its *composited* background
+— walking up the tree through translucent layers — at its real rendered size and
+weight, against the AA threshold that applies to it (3:1 large, 4.5:1 otherwise).
+**Zero failures across all 29 slides.** The traffic-light washes carry body text
+at 15:1 or better, and each light's own colour clears AA on its own wash.
+
+**Colour is never the only signal.** Every coloured dot in the deck sits beside
+its own word: the light slides say "Green light" / "Yellow light" / "Red light"
+in text, the work matrix names each light in its row header, and the exercise
+rule on slide 26 reads "Green light only" next to its green dot. Checked
+programmatically, not by eye.
+
+**Legibility.** Nothing renders below 17px in design space, every size sits on
+the nine-step scale, and no line exceeds 95 characters. Re-measured with the
+webfonts blocked, since that is what an offline room gets.
+
+**Structure.** One `h1`, every slide carries a heading, all images have `alt`,
+the work matrix uses real `<th scope>` headers, the SVG drawings carry
+`role="img"` and labels, and `lang` is set. Non-current slides are
+`aria-hidden`, so a screen reader gets one slide at a time; an `aria-live`
+region announces each change. Focus ring is 3px at 3px offset. No interactive
+target is under 24px.
+
+**Reduced motion.** Under `prefers-reduced-motion: reduce` every transition
+measures 0s and every transform resolves to `none` — including the slide
+transition, which needed naming explicitly because `.slide.is-current`
+re-declares it and outranks a bare `.slide` rule on specificity.
+
+**One deliberate limitation: browser zoom does nothing to the slide canvas.**
+Measured at 200%, text comes out the same physical size, because the deck scales
+down by exactly as much as the zoom scales up. That is inherent to a fixed design
+space, and the fixed design space is the point — it is what stops a slide
+reflowing in front of a room. Two surfaces do reflow and do respond to zoom: the
+presenter notes pane, which is what a presenter actually reads from and which
+measures a true 2.00× at 200%, and the printed handout. If someone needs the
+slides themselves larger, the lever is a bigger display rather than the browser.
+
 **Spacing.** 8px base.
 
 **Motion.** Transform and opacity only; disabled under `prefers-reduced-motion`.
