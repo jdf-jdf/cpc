@@ -220,11 +220,12 @@ body.notes-open .progress { right: var(--notes-w); }
 
 /* The words a prompt adds on top of the last one. Outfit ships no italic, so
    the synthesised slant needs the colour shift to carry the emphasis. */
-.slide__h em {
+.slide__h em, .slide__kicker em {
   font-style: italic;
   color: var(--brand-deep);
 }
-.slide--ink .slide__h em { color: var(--on-ink-brand); }
+.slide--ink .slide__h em,
+.slide--ink .slide__kicker em { color: var(--on-ink-brand); }
 
 .pullquote {
   margin-top: var(--s-5);
@@ -790,8 +791,6 @@ body.notes-open .progress { right: var(--notes-w); }
   font-family: var(--font-display);
 }
 .predict__bar li + li { border-left: 1px solid var(--rule); }
-/* The middle suggestion sits proud, the way the likeliest one does on a phone. */
-.predict__bar .is-pick { background: #FFFFFF; color: var(--brand-deep); }
 
 .predict__cap {
   margin-top: var(--s-3);
